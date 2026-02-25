@@ -12,8 +12,10 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 type Village = 'Konoha' | 'Suna' | 'Kiri' | 'Kumo' | 'Iwa' | 'Akatsuki' | 'Oto' | 'Taki' | 'Desconhecida';
 type Rank = 'Genin' | 'Chunin' | 'Jonin' | 'Kage' | 'Nukenin' | 'Sannin';
 type Element = 'Fogo' | 'Vento' | 'Relâmpago' | 'Terra' | 'Água' | 'Madeira' | 'Escuridão';
+type Dojutsu = 'Sharingan' | 'Mangekyō Sharingan' | 'Rinnegan' | 'Byakugan' | 'Rinne-Sharingan';
 
 const ELEMENTS: Element[] = ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água', 'Madeira', 'Escuridão'];
+const DOJUTSUS: Dojutsu[] = ['Sharingan', 'Mangekyō Sharingan', 'Rinnegan', 'Byakugan', 'Rinne-Sharingan'];
 const RARITIES = ['S', 'A', 'B', 'C'] as const;
 type Rarity = typeof RARITIES[number];
 
@@ -36,6 +38,7 @@ interface Ninja {
   rarity: 'S' | 'A' | 'B' | 'C';
   mentorId?: number;
   jutsus: string[];
+  dojutsus?: Dojutsu[];
 }
 
 // --- Mock Data ---
@@ -70,7 +73,7 @@ const NINJAS: Ninja[] = [
     name: 'Hiruzen Sarutobi',
     village: 'Konoha',
     rank: 'Kage',
-    elements: ['Fogo', 'Terra'],
+    elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água'],
     stats: { ninjutsu: 95, taijutsu: 85, genjutsu: 90, strength: 80, intelligence: 100, speed: 82 },
     image: 'https://static.wikia.nocookie.net/naruto/images/e/e8/Young_Hiruzen_Mobile.png',
     description: 'O Terceiro Hokage, conhecido como "O Professor".',
@@ -115,7 +118,8 @@ const NINJAS: Ninja[] = [
     description: 'O Ninja Copiador que já foi o Sexto Hokage.',
     rarity: 'A',
     mentorId: 4,
-    jutsus: ['Chidori (Raikiri)', 'Kamui', 'Doton: Doryūheki']
+    jutsus: ['Chidori (Raikiri)', 'Kamui', 'Doton: Doryūheki'],
+    dojutsus: ['Sharingan']
   },
   {
     id: 7,
@@ -141,7 +145,8 @@ const NINJAS: Ninja[] = [
     description: 'O último sobrevivente do clã Uchiha e portador do Rinnegan.',
     rarity: 'S',
     mentorId: 6,
-    jutsus: ['Chidori', 'Amaterasu', 'Susanoo']
+    jutsus: ['Chidori', 'Amaterasu', 'Susanoo'],
+    dojutsus: ['Sharingan', 'Rinnegan']
   },
   {
     id: 9,
@@ -192,7 +197,8 @@ const NINJAS: Ninja[] = [
     image: 'https://static.wikia.nocookie.net/naruto/images/e/e9/Itachi_Child_OL.png',
     description: 'Um prodígio do clã Uchiha que sacrificou tudo pela paz.',
     rarity: 'S',
-    jutsus: ['Tsukuyomi', 'Amaterasu', 'Susanoo']
+    jutsus: ['Tsukuyomi', 'Amaterasu', 'Susanoo'],
+    dojutsus: ['Mangekyō Sharingan']
   },
   {
     id: 13,
@@ -204,7 +210,8 @@ const NINJAS: Ninja[] = [
     image: 'https://static.wikia.nocookie.net/naruto/images/1/1d/Shisui_Child_OL.png',
     description: 'Conhecido como "Shisui do Teletransporte", mestre do Genjutsu.',
     rarity: 'A',
-    jutsus: ['Kotoamatsukami', 'Shunshin no Jutsu', 'Susanoo']
+    jutsus: ['Kotoamatsukami', 'Shunshin no Jutsu', 'Susanoo'],
+    dojutsus: ['Mangekyō Sharingan']
   },
   {
     id: 14,
@@ -217,7 +224,8 @@ const NINJAS: Ninja[] = [
     description: 'Um gênio do clã Hyuga e mestre do Punho Suave.',
     rarity: 'A',
     mentorId: 20,
-    jutsus: ['Hakke Rokujūyon Shō', 'Hakkeshō Kaiten', 'Jūken']
+    jutsus: ['Hakke Rokujūyon Shō', 'Hakkeshō Kaiten', 'Jūken'],
+    dojutsus: ['Byakugan']
   },
   {
     id: 15,
@@ -230,7 +238,8 @@ const NINJAS: Ninja[] = [
     description: 'A Princesa do Byakugan e herdeira do clã Hyuga.',
     rarity: 'B',
     mentorId: 59,
-    jutsus: ['Shugohakke Rokujūyon Shō', 'Jūbu Sōshiken', 'Hakke Kūshō']
+    jutsus: ['Shugohakke Rokujūyon Shō', 'Jūbu Sōshiken', 'Hakke Kūshō'],
+    dojutsus: ['Byakugan']
   },
   {
     id: 16,
@@ -372,7 +381,8 @@ const NINJAS: Ninja[] = [
     description: 'Líder da Akatsuki e portador do Rinnegan, busca a paz através da dor.',
     rarity: 'S',
     mentorId: 10,
-    jutsus: ['Shinra Tensei', 'Banshō Ten\'in', 'Chibaku Tensei']
+    jutsus: ['Shinra Tensei', 'Banshō Ten\'in', 'Chibaku Tensei'],
+    dojutsus: ['Rinnegan']
   },
   {
     id: 23,
@@ -470,7 +480,8 @@ const NINJAS: Ninja[] = [
     description: 'O verdadeiro mentor por trás da Akatsuki, portador do Kamui.',
     rarity: 'S',
     mentorId: 4,
-    jutsus: ['Kamui', 'Izanagi', 'Katon: Bakufū Ranbu']
+    jutsus: ['Kamui', 'Izanagi', 'Katon: Bakufū Ranbu'],
+    dojutsus: ['Sharingan']
   },
   // Suna
   {
@@ -782,7 +793,8 @@ const NINJAS: Ninja[] = [
     image: 'https://static.wikia.nocookie.net/naruto/images/8/83/Kid_Hagoromo.png',
     description: 'O Sábio dos Seis Caminhos, criador do Ninshu e o primeiro Jinchuriki do Dez-Caudas (Shinju).',
     rarity: 'S',
-    jutsus: ['Banbutsu Sōzō', 'Chibaku Tensei', 'Rikudō Senjutsu']
+    jutsus: ['Banbutsu Sōzō', 'Chibaku Tensei', 'Rikudō Senjutsu'],
+    dojutsus: ['Rinnegan']
   },
   {
     id: 60,
@@ -821,6 +833,58 @@ const NINJAS: Ninja[] = [
     description: 'Instrutor da Academia Ninja e a primeira pessoa a reconhecer e acreditar em Naruto.',
     rarity: 'C',
     jutsus: ['Kekkai Hōjin', 'Gōkyū no Jutsu']
+  },
+  {
+    id: 63,
+    name: 'Kabuto Yakushi',
+    village: 'Oto',
+    rank: 'Nukenin',
+    elements: ['Terra', 'Água', 'Vento', 'Fogo'],
+    stats: { ninjutsu: 95, taijutsu: 82, genjutsu: 88, strength: 80, intelligence: 98, speed: 88 },
+    image: 'https://static.wikia.nocookie.net/naruto/images/c/c9/Kabuto_Part_1.png',
+    description: 'Um espião mestre e braço direito de Orochimaru que superou seu mestre ao atingir o Modo Sábio.',
+    rarity: 'S',
+    mentorId: 11,
+    jutsus: ['Senpō: Hakugeki no Jutsu', 'Mura-gasumi', 'Iryō Ninjutsu']
+  },
+  {
+    id: 64,
+    name: 'Madara Uchiha',
+    village: 'Konoha',
+    rank: 'Nukenin',
+    elements: ['Fogo', 'Madeira', 'Terra', 'Vento', 'Relâmpago', 'Água'],
+    stats: { ninjutsu: 100, taijutsu: 100, genjutsu: 100, strength: 98, intelligence: 98, speed: 96 },
+    image: 'https://static.wikia.nocookie.net/naruto/images/f/fd/Madara.png',
+    description: 'O lendário líder do clã Uchiha e co-fundador de Konoha, portador do Rinnegan e do Susanoo perfeito.',
+    rarity: 'S',
+    jutsus: ['Tengai Shinsei', 'Susanoo', 'Katon: Gōka Mekkyaku'],
+    dojutsus: ['Sharingan', 'Rinnegan']
+  },
+  {
+    id: 65,
+    name: 'Danzō Shimura',
+    village: 'Konoha',
+    rank: 'Kage',
+    elements: ['Vento', 'Madeira'],
+    stats: { ninjutsu: 92, taijutsu: 85, genjutsu: 95, strength: 82, intelligence: 96, speed: 80 },
+    image: 'https://static.wikia.nocookie.net/naruto/images/1/17/Danz%C5%8D.png',
+    description: 'O líder da fundação ANBU Raiz, disposto a fazer qualquer coisa para proteger Konoha das sombras.',
+    rarity: 'S',
+    mentorId: 2,
+    jutsus: ['Izanagi', 'Fūton: Shinkūgyoku', 'Mokuton: Jukai Kōtan']
+  },
+  {
+    id: 66,
+    name: 'Kaguya Ōtsutsuki',
+    village: 'Desconhecida',
+    rank: 'Kage',
+    elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água', 'Madeira', 'Escuridão'],
+    stats: { ninjutsu: 100, taijutsu: 90, genjutsu: 100, strength: 100, intelligence: 90, speed: 100 },
+    image: 'https://static.wikia.nocookie.net/naruto/images/6/6c/Kaguya_%C5%8Ctsutsuki.png',
+    description: 'A Progenitora do Chakra e a primeira a possuir chakra no mundo, capaz de manipular dimensões.',
+    rarity: 'S',
+    jutsus: ['Tomogoroshi no Haikotsu', 'Amenominaka', 'Bōchū Gudōdama'],
+    dojutsus: ['Rinne-Sharingan']
   }
 ];
 
@@ -863,6 +927,23 @@ const ElementBadge: React.FC<{ element: Element }> = ({ element }) => {
     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider ${colors[element]}`}>
       {icons[element]}
       {element}
+    </span>
+  );
+};
+
+const DojutsuBadge: React.FC<{ dojutsu: Dojutsu }> = ({ dojutsu }) => {
+  const colors: Record<Dojutsu, string> = {
+    'Sharingan': 'bg-red-600 text-white border-red-700',
+    'Mangekyō Sharingan': 'bg-red-900 text-white border-red-950',
+    'Rinnegan': 'bg-purple-600 text-white border-purple-700',
+    'Byakugan': 'bg-blue-100 text-blue-900 border-blue-200',
+    'Rinne-Sharingan': 'bg-rose-800 text-white border-rose-950',
+  };
+
+  return (
+    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[9px] font-black border uppercase tracking-widest shadow-sm ${colors[dojutsu]}`}>
+      <Eye size={10} />
+      {dojutsu}
     </span>
   );
 };
@@ -980,7 +1061,12 @@ const NinjaCard: React.FC<{
             (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${ninja.id}/400/400`;
           }}
         />
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent flex flex-col gap-2">
+          {ninja.dojutsus && (
+            <div className="flex flex-wrap gap-1 justify-start">
+              {ninja.dojutsus.map(d => <DojutsuBadge key={d} dojutsu={d} />)}
+            </div>
+          )}
           <div className="flex flex-wrap gap-1">
             {ninja.elements.map(el => <ElementBadge key={el} element={el} />)}
           </div>
@@ -1155,7 +1241,8 @@ const ExpandedNinjaCard: React.FC<{
               {ninja.rank}
             </motion.span>
             <div className={`h-px flex-grow ${isDarkMode ? 'bg-stone-700' : 'bg-stone-200'}`} />
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2 justify-end">
+              {ninja.dojutsus && ninja.dojutsus.map(d => <DojutsuBadge key={d} dojutsu={d} />)}
               {ninja.elements.map(el => <ElementBadge key={el} element={el} />)}
             </div>
           </div>
@@ -1271,6 +1358,7 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeVillage, setActiveVillage] = useState<Village | 'All'>('All');
+  const [activeDojutsu, setActiveDojutsu] = useState<Dojutsu | 'All'>('All');
   const [activeRarity, setActiveRarity] = useState<Rarity | 'All'>('All');
   const [selectedNinjaId, setSelectedNinjaId] = useState<number | null>(null);
   const [comparisonIds, setComparisonIds] = useState<number[]>([]);
@@ -1295,9 +1383,10 @@ export default function App() {
       const matchesSearch = ninja.name.toLowerCase().includes(search.toLowerCase());
       const matchesVillage = activeVillage === 'All' || ninja.village === activeVillage;
       const matchesRarity = activeRarity === 'All' || ninja.rarity === activeRarity;
-      return matchesSearch && matchesVillage && matchesRarity;
+      const matchesDojutsu = activeDojutsu === 'All' || (ninja.dojutsus && ninja.dojutsus.includes(activeDojutsu));
+      return matchesSearch && matchesVillage && matchesRarity && matchesDojutsu;
     });
-  }, [ninjas, search, activeVillage, activeRarity]);
+  }, [ninjas, search, activeVillage, activeRarity, activeDojutsu]);
 
   const selectedNinja = useMemo(() => 
     ninjas.find(n => n.id === selectedNinjaId), 
@@ -1414,6 +1503,32 @@ export default function App() {
                   }`}
                 >
                   Rank {rarity}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-2">
+              <button 
+                onClick={() => setActiveDojutsu('All')} 
+                className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${
+                  activeDojutsu === 'All' 
+                    ? 'bg-purple-600 text-white border-purple-600' 
+                    : isDarkMode ? 'bg-stone-900 text-stone-600 border-stone-800' : 'bg-white text-stone-400 border-stone-200'
+                }`}
+              >
+                Dōjutsu
+              </button>
+              {DOJUTSUS.map((dojutsu) => (
+                <button 
+                  key={dojutsu} 
+                  onClick={() => setActiveDojutsu(dojutsu)} 
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${
+                    activeDojutsu === dojutsu 
+                      ? isDarkMode ? 'bg-purple-100 text-purple-900 border-purple-100' : 'bg-purple-800 text-white border-purple-800' 
+                      : isDarkMode ? 'bg-stone-900 text-stone-600 border-stone-800 hover:border-stone-700' : 'bg-white text-stone-400 border-stone-200 hover:border-stone-400'
+                  }`}
+                >
+                  {dojutsu}
                 </button>
               ))}
             </div>
