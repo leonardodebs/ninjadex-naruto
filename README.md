@@ -65,4 +65,4 @@ O projeto inclui alguns scripts auxiliares para gerenciamento de dados:
 Este projeto é para fins educacionais e de entretenimento. Todos os direitos dos personagens e do universo de Naruto pertencem à Masashi Kishimoto e seus respectivos detentores de direitos.
 
 ---
-Desenvolvido com ❤️ por [Seu Nome/GitHub]
+Desenvolvido com Google IA Studio por Leonardo Debs - 2026
