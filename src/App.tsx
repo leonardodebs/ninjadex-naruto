@@ -50,7 +50,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Madeira', 'Água', 'Terra'],
     stats: { ninjutsu: 100, taijutsu: 95, genjutsu: 85, strength: 98, intelligence: 90, speed: 92 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/2e/Kid_Hashirama.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/131321.jpg',
     description: 'O Primeiro Hokage e fundador da Vila Oculta da Folha.',
     rarity: 'S',
     jutsus: ['Mokuton: Shin Sūsenju', 'Mokuton: Kajukai Kōrin', 'Hokage-shiki Jijun Jutsu']
@@ -62,7 +62,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Água'],
     stats: { ninjutsu: 98, taijutsu: 90, genjutsu: 85, strength: 88, intelligence: 100, speed: 98 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/70/Kid_Tobirama.png',
+    image: 'https://cdn.myanimelist.net/images/characters/16/131339.jpg',
     description: 'O Segundo Hokage, criador de diversos Jutsus proibidos.',
     rarity: 'S',
     mentorId: 1,
@@ -75,7 +75,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água'],
     stats: { ninjutsu: 95, taijutsu: 85, genjutsu: 90, strength: 80, intelligence: 100, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/e/e8/Young_Hiruzen_Mobile.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/131341.jpg',
     description: 'O Terceiro Hokage, conhecido como "O Professor".',
     rarity: 'S',
     mentorId: 2,
@@ -88,7 +88,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Relâmpago', 'Vento'],
     stats: { ninjutsu: 98, taijutsu: 95, genjutsu: 80, strength: 85, intelligence: 98, speed: 100 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/e/eb/Minato_Jonin.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/103803.jpg',
     description: 'O Quarto Hokage, o Relâmpago Amarelo de Konoha.',
     rarity: 'S',
     mentorId: 10,
@@ -101,7 +101,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Fogo', 'Água'],
     stats: { ninjutsu: 90, taijutsu: 100, genjutsu: 80, strength: 100, intelligence: 92, speed: 85 },
-    image: 'https://images.weserv.nl/?url=https://static.wikia.nocookie.net/naruto/images/b/b3/Tsunade_infobox2.png',
+    image: 'https://cdn.myanimelist.net/images/characters/1/131333.jpg',
     description: 'A Quinta Hokage e a maior Ninja Médica do mundo.',
     rarity: 'S',
     mentorId: 3,
@@ -114,12 +114,25 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Relâmpago', 'Terra'],
     stats: { ninjutsu: 90, taijutsu: 88, genjutsu: 85, strength: 82, intelligence: 95, speed: 90 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/27/Kakashi_Hatake.png',
+    image: 'https://cdn.myanimelist.net/images/characters/7/284129.jpg',
     description: 'O Ninja Copiador que já foi o Sexto Hokage.',
     rarity: 'A',
     mentorId: 4,
     jutsus: ['Chidori (Raikiri)', 'Kamui', 'Doton: Doryūheki'],
     dojutsus: ['Sharingan']
+  },
+  {
+    id: 61,
+    name: 'Yamato',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Madeira', 'Terra', 'Água'],
+    stats: { ninjutsu: 92, taijutsu: 85, genjutsu: 80, strength: 82, intelligence: 90, speed: 84 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/158757.jpg',
+    description: 'Um capitão da ANBU e o único sobrevivente dos experimentos de Orochimaru com as células de Hashirama.',
+    rarity: 'A',
+    mentorId: 6,
+    jutsus: ['Mokuton: Jukai Kōtan', 'Mokuton: Mokujōheki', 'Hokage-shiki Jijun Jutsu']
   },
   {
     id: 7,
@@ -128,7 +141,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Vento'],
     stats: { ninjutsu: 95, taijutsu: 90, genjutsu: 40, strength: 95, intelligence: 80, speed: 92 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png',
+    image: 'https://cdn.myanimelist.net/images/characters/2/284121.jpg',
     description: 'O Sétimo Hokage e o Jinchuriki da Raposa de Nove Caudas.',
     rarity: 'S',
     mentorId: 6,
@@ -141,7 +154,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Fogo', 'Relâmpago'],
     stats: { ninjutsu: 98, taijutsu: 92, genjutsu: 95, strength: 88, intelligence: 94, speed: 98 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png',
+    image: 'https://cdn.myanimelist.net/images/characters/9/131317.jpg',
     description: 'O último sobrevivente do clã Uchiha e portador do Rinnegan.',
     rarity: 'S',
     mentorId: 6,
@@ -155,181 +168,24 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Água', 'Terra'],
     stats: { ninjutsu: 85, taijutsu: 95, genjutsu: 80, strength: 98, intelligence: 95, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/6/64/Sakura_Part_1.png',
+    image: 'https://cdn.myanimelist.net/images/characters/9/131311.jpg',
     description: 'Uma Ninja Médica excepcional com força sobre-humana.',
     rarity: 'A',
     mentorId: 6,
     jutsus: ['Byakugō no Jutsu', 'Ōkashō', 'Saikan Chūshutsu no Jutsu']
   },
   {
-    id: 10,
-    name: 'Jiraiya',
-    village: 'Konoha',
-    rank: 'Sannin',
-    elements: ['Fogo', 'Terra'],
-    stats: { ninjutsu: 95, taijutsu: 90, genjutsu: 80, strength: 90, intelligence: 92, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/1f/Jiraiya_Young.png',
-    description: 'O Sábio dos Sapos e um dos Três Sannins Lendários.',
-    rarity: 'S',
-    mentorId: 3,
-    jutsus: ['Rasengan', 'Gamaguchi Shibari', 'Senpō: Goemon']
-  },
-  {
-    id: 11,
-    name: 'Orochimaru',
-    village: 'Oto',
-    rank: 'Sannin',
-    elements: ['Vento', 'Terra'],
-    stats: { ninjutsu: 98, taijutsu: 85, genjutsu: 95, strength: 85, intelligence: 100, speed: 90 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/14/Orochimaru_Infobox.png',
-    description: 'Um Sannin Lendário obcecado pela imortalidade.',
-    rarity: 'S',
-    mentorId: 3,
-    jutsus: ['Kusanagi no Tsurugi', 'Edo Tensei', 'Yamata no Jutsu']
-  },
-  {
-    id: 12,
-    name: 'Itachi Uchiha',
-    village: 'Akatsuki',
-    rank: 'Nukenin',
-    elements: ['Fogo', 'Água'],
-    stats: { ninjutsu: 96, taijutsu: 85, genjutsu: 100, strength: 82, intelligence: 100, speed: 96 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/e/e9/Itachi_Child_OL.png',
-    description: 'Um prodígio do clã Uchiha que sacrificou tudo pela paz.',
-    rarity: 'S',
-    jutsus: ['Tsukuyomi', 'Amaterasu', 'Susanoo'],
-    dojutsus: ['Mangekyō Sharingan']
-  },
-  {
-    id: 13,
-    name: 'Shisui Uchiha',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Fogo', 'Vento'],
-    stats: { ninjutsu: 92, taijutsu: 90, genjutsu: 100, strength: 80, intelligence: 95, speed: 100 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/1d/Shisui_Child_OL.png',
-    description: 'Conhecido como "Shisui do Teletransporte", mestre do Genjutsu.',
-    rarity: 'A',
-    jutsus: ['Kotoamatsukami', 'Shunshin no Jutsu', 'Susanoo'],
-    dojutsus: ['Mangekyō Sharingan']
-  },
-  {
-    id: 14,
-    name: 'Neji Hyuga',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Água', 'Terra'],
-    stats: { ninjutsu: 70, taijutsu: 98, genjutsu: 60, strength: 85, intelligence: 90, speed: 92 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/7e/Neji_Part_I.png',
-    description: 'Um gênio do clã Hyuga e mestre do Punho Suave.',
-    rarity: 'A',
-    mentorId: 20,
-    jutsus: ['Hakke Rokujūyon Shō', 'Hakkeshō Kaiten', 'Jūken'],
-    dojutsus: ['Byakugan']
-  },
-  {
-    id: 15,
-    name: 'Hinata Hyuga',
+    id: 60,
+    name: 'Sai',
     village: 'Konoha',
     rank: 'Chunin',
-    elements: ['Fogo', 'Relâmpago'],
-    stats: { ninjutsu: 65, taijutsu: 85, genjutsu: 60, strength: 75, intelligence: 82, speed: 80 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/9/97/Hinata.png',
-    description: 'A Princesa do Byakugan e herdeira do clã Hyuga.',
-    rarity: 'B',
-    mentorId: 59,
-    jutsus: ['Shugohakke Rokujūyon Shō', 'Jūbu Sōshiken', 'Hakke Kūshō'],
-    dojutsus: ['Byakugan']
-  },
-  {
-    id: 16,
-    name: 'Shikamaru Nara',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Terra', 'Fogo'],
-    stats: { ninjutsu: 85, taijutsu: 60, genjutsu: 70, strength: 65, intelligence: 100, speed: 75 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/4/44/Shikamaru_Part_I.png',
-    description: 'O estrategista brilhante com um QI superior a 200.',
-    rarity: 'A',
-    mentorId: 19,
-    jutsus: ['Kagemane no Jutsu', 'Kageyose no Jutsu', 'Kage Kubi Shibari no Jutsu']
-  },
-  {
-    id: 17,
-    name: 'Choji Akimichi',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Fogo', 'Terra'],
-    stats: { ninjutsu: 75, taijutsu: 90, genjutsu: 50, strength: 100, intelligence: 65, speed: 60 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/7d/Ch%C5%8Dji_Akimichi.png',
-    description: 'Um membro leal do clã Akimichi com força física imensa.',
-    rarity: 'B',
-    mentorId: 19,
-    jutsus: ['Baika no Jutsu', 'Nikudan Sensha', 'Chō Baika no Jutsu']
-  },
-  {
-    id: 18,
-    name: 'Ino Yamanaka',
-    village: 'Konoha',
-    rank: 'Jonin',
     elements: ['Terra', 'Água'],
-    stats: { ninjutsu: 80, taijutsu: 60, genjutsu: 85, strength: 60, intelligence: 85, speed: 75 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/d/dd/Ino.png',
-    description: 'Mestra em técnicas de transferência de mente.',
-    rarity: 'B',
-    mentorId: 19,
-    jutsus: ['Shinkenshin no Jutsu', 'Shinranshin no Jutsu', 'Iryō Ninjutsu']
-  },
-  {
-    id: 19,
-    name: 'Asuma Sarutobi',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Fogo', 'Vento'],
-    stats: { ninjutsu: 85, taijutsu: 90, genjutsu: 70, strength: 88, intelligence: 85, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/7c/Asuma.png',
-    description: 'Líder do Time 10 e mestre em combate com lâminas de chakra.',
+    stats: { ninjutsu: 88, taijutsu: 82, genjutsu: 75, strength: 70, intelligence: 92, speed: 85 },
+    image: 'https://cdn.myanimelist.net/images/characters/12/158759.jpg',
+    description: 'Um talentoso artista da ANBU Raiz que aprendeu a expressar emoções através do Time 7.',
     rarity: 'A',
-    mentorId: 3,
-    jutsus: ['Hien', 'Katon: Haisekishō', 'Raigō: Senjusatsu']
-  },
-  {
-    id: 20,
-    name: 'Might Guy',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Fogo', 'Relâmpago'],
-    stats: { ninjutsu: 20, taijutsu: 100, genjutsu: 10, strength: 98, intelligence: 75, speed: 100 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/3/31/Might_Guy.png',
-    description: 'A Besta Verde de Konoha, mestre supremo do Taijutsu.',
-    rarity: 'S',
-    jutsus: ['Hachimon Tonkō', 'Asajaku', 'Hirudora']
-  },
-  {
-    id: 21,
-    name: 'Rock Lee',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: [],
-    stats: { ninjutsu: 0, taijutsu: 98, genjutsu: 0, strength: 92, intelligence: 70, speed: 95 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/9/97/Rock_Lee_Part_I.png',
-    description: 'Um especialista em Taijutsu que prova que o trabalho duro vence o talento.',
-    rarity: 'A',
-    mentorId: 20,
-    jutsus: ['Omote Renge', 'Ura Renge', 'Hachimon Tonkō']
-  },
-  {
-    id: 56,
-    name: 'Tenten',
-    village: 'Konoha',
-    rank: 'Chunin',
-    elements: [],
-    stats: { ninjutsu: 60, taijutsu: 85, genjutsu: 30, strength: 65, intelligence: 70, speed: 80 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/d/da/Tenten_Part_1.png',
-    description: 'Especialista em armas ninjas e ferramentas de invocação, sempre pronta para o combate.',
-    rarity: 'C',
-    mentorId: 20,
-    jutsus: ['Sōshōryū', 'Bashōsen', 'Buki Kuchiyose']
+    mentorId: 11,
+    jutsus: ['Chōjū Giga', 'Sumi-gasumi', 'Koshi Tandan']
   },
   {
     id: 59,
@@ -338,10 +194,24 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: [],
     stats: { ninjutsu: 75, taijutsu: 70, genjutsu: 95, strength: 60, intelligence: 85, speed: 80 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/6/67/Kurenai_Part_I.png',
+    image: 'https://cdn.myanimelist.net/images/characters/8/103797.jpg',
     description: 'Uma das melhores especialistas em Genjutsu de Konoha e líder do Time 8.',
     rarity: 'B',
     jutsus: ['Magen: Jubaku Satsu', 'Magen: Kokoni Arazu no Jutsu', 'Genjutsu: Flower Petal Escape']
+  },
+  {
+    id: 15,
+    name: 'Hinata Hyuga',
+    village: 'Konoha',
+    rank: 'Chunin',
+    elements: ['Fogo', 'Relâmpago'],
+    stats: { ninjutsu: 65, taijutsu: 85, genjutsu: 60, strength: 75, intelligence: 82, speed: 80 },
+    image: 'https://cdn.myanimelist.net/images/characters/10/131313.jpg',
+    description: 'A Princesa do Byakugan e herdeira do clã Hyuga.',
+    rarity: 'B',
+    mentorId: 59,
+    jutsus: ['Shugohakke Rokujūyon Shō', 'Jūbu Sōshiken', 'Hakke Kūshō'],
+    dojutsus: ['Byakugan']
   },
   {
     id: 57,
@@ -350,7 +220,7 @@ const NINJAS: Ninja[] = [
     rank: 'Chunin',
     elements: ['Terra'],
     stats: { ninjutsu: 70, taijutsu: 85, genjutsu: 40, strength: 80, intelligence: 60, speed: 90 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/0/03/Kiba.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/110945.jpg',
     description: 'Membro do clã Inuzuka, luta sempre ao lado de seu fiel cão ninja, Akamaru.',
     rarity: 'C',
     mentorId: 59,
@@ -363,11 +233,231 @@ const NINJAS: Ninja[] = [
     rank: 'Chunin',
     elements: ['Fogo', 'Terra', 'Água'],
     stats: { ninjutsu: 85, taijutsu: 60, genjutsu: 50, strength: 60, intelligence: 85, speed: 70 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/9/9c/Shino.png',
+    image: 'https://cdn.myanimelist.net/images/characters/16/292449.jpg',
     description: 'Membro do clã Aburame, utiliza insetos parasitas em combate para drenar o chakra do inimigo.',
     rarity: 'C',
     mentorId: 59,
     jutsus: ['Kikaichū no Jutsu', 'Mushi Bunshin no Jutsu', 'Mushikame no Jutsu']
+  },
+  {
+    id: 20,
+    name: 'Might Guy',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Fogo', 'Relâmpago'],
+    stats: { ninjutsu: 20, taijutsu: 100, genjutsu: 10, strength: 98, intelligence: 75, speed: 100 },
+    image: 'https://cdn.myanimelist.net/images/characters/16/131329.jpg',
+    description: 'A Besta Verde de Konoha, mestre supremo do Taijutsu.',
+    rarity: 'S',
+    jutsus: ['Hachimon Tonkō', 'Asajaku', 'Hirudora']
+  },
+  {
+    id: 14,
+    name: 'Neji Hyuga',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Água', 'Terra'],
+    stats: { ninjutsu: 70, taijutsu: 98, genjutsu: 60, strength: 85, intelligence: 90, speed: 92 },
+    image: 'https://cdn.myanimelist.net/images/characters/14/131315.jpg',
+    description: 'Um gênio do clã Hyuga e mestre do Punho Suave.',
+    rarity: 'A',
+    mentorId: 20,
+    jutsus: ['Hakke Rokujūyon Shō', 'Hakkeshō Kaiten', 'Jūken'],
+    dojutsus: ['Byakugan']
+  },
+  {
+    id: 21,
+    name: 'Rock Lee',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: [],
+    stats: { ninjutsu: 0, taijutsu: 98, genjutsu: 0, strength: 92, intelligence: 70, speed: 95 },
+    image: 'https://cdn.myanimelist.net/images/characters/10/131323.jpg',
+    description: 'Um especialista em Taijutsu que prova que o trabalho duro vence o talento.',
+    rarity: 'A',
+    mentorId: 20,
+    jutsus: ['Omote Renge', 'Ura Renge', 'Hachimon Tonkō']
+  },
+  {
+    id: 56,
+    name: 'Tenten',
+    village: 'Konoha',
+    rank: 'Chunin',
+    elements: [],
+    stats: { ninjutsu: 60, taijutsu: 85, genjutsu: 30, strength: 65, intelligence: 70, speed: 80 },
+    image: 'https://cdn.myanimelist.net/images/characters/16/110946.jpg',
+    description: 'Especialista em armas ninjas e ferramentas de invocação, sempre pronta para o combate.',
+    rarity: 'C',
+    mentorId: 20,
+    jutsus: ['Sōshōryū', 'Bashōsen', 'Buki Kuchiyose']
+  },
+  {
+    id: 19,
+    name: 'Asuma Sarutobi',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Fogo', 'Vento'],
+    stats: { ninjutsu: 85, taijutsu: 90, genjutsu: 70, strength: 88, intelligence: 85, speed: 82 },
+    image: 'https://cdn.myanimelist.net/images/characters/14/103799.jpg',
+    description: 'Líder do Time 10 e mestre em combate com lâminas de chakra.',
+    rarity: 'A',
+    mentorId: 3,
+    jutsus: ['Hien', 'Katon: Haisekishō', 'Raigō: Senjusatsu']
+  },
+  {
+    id: 16,
+    name: 'Shikamaru Nara',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Terra', 'Fogo'],
+    stats: { ninjutsu: 85, taijutsu: 60, genjutsu: 70, strength: 65, intelligence: 100, speed: 75 },
+    image: 'https://cdn.myanimelist.net/images/characters/13/131319.jpg',
+    description: 'O estrategista brilhante com um QI superior a 200.',
+    rarity: 'A',
+    mentorId: 19,
+    jutsus: ['Kagemane no Jutsu', 'Kageyose no Jutsu', 'Kage Kubi Shibari no Jutsu']
+  },
+  {
+    id: 18,
+    name: 'Ino Yamanaka',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Terra', 'Água'],
+    stats: { ninjutsu: 80, taijutsu: 60, genjutsu: 85, strength: 60, intelligence: 85, speed: 75 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/131309.jpg',
+    description: 'Mestra em técnicas de transferência de mente.',
+    rarity: 'B',
+    mentorId: 19,
+    jutsus: ['Shinkenshin no Jutsu', 'Shinranshin no Jutsu', 'Iryō Ninjutsu']
+  },
+  {
+    id: 17,
+    name: 'Choji Akimichi',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Fogo', 'Terra'],
+    stats: { ninjutsu: 75, taijutsu: 90, genjutsu: 50, strength: 100, intelligence: 65, speed: 60 },
+    image: 'https://cdn.myanimelist.net/images/characters/9/105421.jpg',
+    description: 'Um membro leal do clã Akimichi com força física imensa.',
+    rarity: 'B',
+    mentorId: 19,
+    jutsus: ['Baika no Jutsu', 'Nikudan Sensha', 'Chō Baika no Jutsu']
+  },
+  {
+    id: 10,
+    name: 'Jiraiya',
+    village: 'Konoha',
+    rank: 'Sannin',
+    elements: ['Fogo', 'Terra'],
+    stats: { ninjutsu: 95, taijutsu: 90, genjutsu: 80, strength: 90, intelligence: 92, speed: 85 },
+    image: 'https://cdn.myanimelist.net/images/characters/12/131325.jpg',
+    description: 'O Sábio dos Sapos e um dos Três Sannins Lendários.',
+    rarity: 'S',
+    mentorId: 3,
+    jutsus: ['Rasengan', 'Gamaguchi Shibari', 'Senpō: Goemon']
+  },
+  {
+    id: 64,
+    name: 'Madara Uchiha',
+    village: 'Konoha',
+    rank: 'Nukenin',
+    elements: ['Fogo', 'Madeira', 'Terra', 'Vento', 'Relâmpago', 'Água'],
+    stats: { ninjutsu: 100, taijutsu: 100, genjutsu: 100, strength: 98, intelligence: 98, speed: 96 },
+    image: 'https://cdn.myanimelist.net/images/characters/10/162813.jpg',
+    description: 'O lendário líder do clã Uchiha e co-fundador de Konoha, portador do Rinnegan e do Susanoo perfeito.',
+    rarity: 'S',
+    jutsus: ['Tengai Shinsei', 'Susanoo', 'Katon: Gōka Mekkyaku'],
+    dojutsus: ['Sharingan', 'Rinnegan']
+  },
+  {
+    id: 84,
+    name: 'Izuna Uchiha',
+    village: 'Konoha',
+    rank: 'Kage',
+    elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água'],
+    stats: { ninjutsu: 90, taijutsu: 90, genjutsu: 90, strength: 85, intelligence: 90, speed: 95 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/103801.jpg',
+    description: 'Irmão mais novo de Madara, um dos primeiros a despertar o Mangekyō Sharingan.',
+    rarity: 'S',
+    jutsus: ['Katon: Gōkakyū no Jutsu', 'Kenjutsu', 'Susanoo'],
+    dojutsus: ['Sharingan', 'Mangekyō Sharingan']
+  },
+  {
+    id: 85,
+    name: 'Fugaku Uchiha',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Fogo', 'Terra', 'Água', 'Vento', 'Relâmpago'],
+    stats: { ninjutsu: 90, taijutsu: 85, genjutsu: 90, strength: 80, intelligence: 90, speed: 85 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/103807.jpg',
+    description: 'Líder do clã Uchiha e pai de Itachi e Sasuke, possuía o Mangekyō Sharingan.',
+    rarity: 'A',
+    jutsus: ['Katon: Gōkakyū no Jutsu', 'Genjutsu: Sharingan', 'Susanoo'],
+    dojutsus: ['Sharingan', 'Mangekyō Sharingan']
+  },
+  {
+    id: 13,
+    name: 'Shisui Uchiha',
+    village: 'Konoha',
+    rank: 'Jonin',
+    elements: ['Fogo', 'Vento'],
+    stats: { ninjutsu: 92, taijutsu: 90, genjutsu: 100, strength: 80, intelligence: 95, speed: 100 },
+    image: 'https://cdn.myanimelist.net/images/characters/16/292332.jpg',
+    description: 'Conhecido como "Shisui do Teletransporte", mestre do Genjutsu.',
+    rarity: 'A',
+    jutsus: ['Kotoamatsukami', 'Shunshin no Jutsu', 'Susanoo'],
+    dojutsus: ['Mangekyō Sharingan']
+  },
+  {
+    id: 62,
+    name: 'Iruka Umino',
+    village: 'Konoha',
+    rank: 'Chunin',
+    elements: ['Fogo', 'Água'],
+    stats: { ninjutsu: 75, taijutsu: 72, genjutsu: 70, strength: 68, intelligence: 85, speed: 74 },
+    image: 'https://cdn.myanimelist.net/images/characters/16/103837.jpg',
+    description: 'Instrutor da Academia Ninja e a primeira pessoa a reconhecer e acreditar em Naruto.',
+    rarity: 'C',
+    jutsus: ['Kekkai Hōjin', 'Gōkyū no Jutsu']
+  },
+  {
+    id: 65,
+    name: 'Danzō Shimura',
+    village: 'Konoha',
+    rank: 'Kage',
+    elements: ['Vento', 'Madeira'],
+    stats: { ninjutsu: 92, taijutsu: 85, genjutsu: 95, strength: 82, intelligence: 96, speed: 80 },
+    image: 'https://cdn.myanimelist.net/images/characters/15/103809.jpg',
+    description: 'O líder da fundação ANBU Raiz, disposto a fazer qualquer coisa para proteger Konoha das sombras.',
+    rarity: 'S',
+    mentorId: 2,
+    jutsus: ['Izanagi', 'Fūton: Shinkūgyoku', 'Mokuton: Jukai Kōtan']
+  },
+  {
+    id: 11,
+    name: 'Orochimaru',
+    village: 'Oto',
+    rank: 'Sannin',
+    elements: ['Vento', 'Terra'],
+    stats: { ninjutsu: 98, taijutsu: 85, genjutsu: 95, strength: 85, intelligence: 100, speed: 90 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/131331.jpg',
+    description: 'Um Sannin Lendário obcecado pela imortalidade.',
+    rarity: 'S',
+    mentorId: 3,
+    jutsus: ['Kusanagi no Tsurugi', 'Edo Tensei', 'Yamata no Jutsu']
+  },
+  {
+    id: 12,
+    name: 'Itachi Uchiha',
+    village: 'Akatsuki',
+    rank: 'Nukenin',
+    elements: ['Fogo', 'Água'],
+    stats: { ninjutsu: 96, taijutsu: 85, genjutsu: 100, strength: 82, intelligence: 100, speed: 96 },
+    image: 'https://cdn.myanimelist.net/images/characters/9/284122.jpg',
+    description: 'Um prodígio do clã Uchiha que sacrificou tudo pela paz.',
+    rarity: 'S',
+    jutsus: ['Tsukuyomi', 'Amaterasu', 'Susanoo'],
+    dojutsus: ['Mangekyō Sharingan']
   },
   // Akatsuki
   {
@@ -377,7 +467,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água'],
     stats: { ninjutsu: 100, taijutsu: 85, genjutsu: 90, strength: 88, intelligence: 95, speed: 90 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/0/06/Nagato_Early_Akatsuki.png',
+    image: 'https://cdn.myanimelist.net/images/characters/8/73473.jpg',
     description: 'Líder da Akatsuki e portador do Rinnegan, busca a paz através da dor.',
     rarity: 'S',
     mentorId: 10,
@@ -391,7 +481,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Vento', 'Terra', 'Água'],
     stats: { ninjutsu: 92, taijutsu: 75, genjutsu: 85, strength: 70, intelligence: 92, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/3/36/Young_Konan_OL.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/158755.jpg',
     description: 'O "Anjo" da Akatsuki, mestra em técnicas de origami de papel.',
     rarity: 'S',
     mentorId: 10,
@@ -404,7 +494,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Água', 'Terra'],
     stats: { ninjutsu: 94, taijutsu: 92, genjutsu: 70, strength: 98, intelligence: 85, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/f/f7/Kisame_Hoshigaki_full.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/73471.jpg',
     description: 'A Besta sem Cauda, mestre da Samehada e um dos Sete Espadachins.',
     rarity: 'S',
     jutsus: ['Suiton: Daikōdan no Jutsu', 'Suiton: Bakusui Shōha', 'Samehada Fusion']
@@ -416,7 +506,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Terra'],
     stats: { ninjutsu: 95, taijutsu: 80, genjutsu: 75, strength: 78, intelligence: 88, speed: 90 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/f/f5/NUNSRDeidara.png',
+    image: 'https://cdn.myanimelist.net/images/characters/12/73470.jpg',
     description: 'Um artista que usa argila explosiva. A arte é um estouro!',
     rarity: 'S',
     jutsus: ['C3', 'C4 Karura', 'C0']
@@ -428,7 +518,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: [],
     stats: { ninjutsu: 98, taijutsu: 85, genjutsu: 80, strength: 80, intelligence: 96, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/12/Sasori_UNSR.png',
+    image: 'https://cdn.myanimelist.net/images/characters/10/73472.jpg',
     description: 'Sasori da Areia Vermelha, o maior mestre de marionetes da história.',
     rarity: 'S',
     jutsus: ['Akahigi: Hyakki no Sōen', 'Satetsu Kaihō', 'Sandaime Kazekage Puppet']
@@ -440,7 +530,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: [],
     stats: { ninjutsu: 80, taijutsu: 90, genjutsu: 60, strength: 88, intelligence: 65, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/f/ff/NSUNRHidan.png',
+    image: 'https://cdn.myanimelist.net/images/characters/10/73474.jpg',
     description: 'O seguidor imortal de Jashin que usa rituais de sangue.',
     rarity: 'S',
     jutsus: ['Jujutsu: Shijihyōketsu', 'Immortality', 'Scythe Combat']
@@ -452,7 +542,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água'],
     stats: { ninjutsu: 95, taijutsu: 88, genjutsu: 75, strength: 95, intelligence: 90, speed: 80 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/1a/Kakuzu_UNSR.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/73475.jpg',
     description: 'Um ninja tesoureiro que possui cinco corações e domina todos os elementos.',
     rarity: 'S',
     jutsus: ['Jigokuzuki', 'Kiri Same', 'Earth Grudge Fear']
@@ -464,7 +554,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Madeira', 'Terra'],
     stats: { ninjutsu: 85, taijutsu: 70, genjutsu: 80, strength: 75, intelligence: 98, speed: 75 },
-    image: 'https://images.weserv.nl/?url=https://static.wikia.nocookie.net/naruto/images/5/5f/White_Zetsu.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/103811.jpg',
     description: 'O espião da Akatsuki, dividido entre as metades branca e preta.',
     rarity: 'A',
     jutsus: ['Kagerō', 'Hōshi no Jutsu', 'Mokuton: Sashiki no Jutsu']
@@ -476,7 +566,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Fogo', 'Madeira', 'Terra'],
     stats: { ninjutsu: 98, taijutsu: 92, genjutsu: 98, strength: 90, intelligence: 95, speed: 96 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/4/4a/Obito_Uchiha.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/103805.jpg',
     description: 'O verdadeiro mentor por trás da Akatsuki, portador do Kamui.',
     rarity: 'S',
     mentorId: 4,
@@ -491,7 +581,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Vento', 'Terra'],
     stats: { ninjutsu: 96, taijutsu: 70, genjutsu: 75, strength: 80, intelligence: 92, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/131327.jpg',
     description: 'O Quinto Kazekage, mestre da manipulação de areia.',
     rarity: 'S',
     jutsus: ['Sabaku Kyū', 'Sabaku Sōsō', 'Sabaku Taisō']
@@ -503,7 +593,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Vento'],
     stats: { ninjutsu: 90, taijutsu: 75, genjutsu: 70, strength: 78, intelligence: 90, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/b/bb/Temari_newshot.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/131327.jpg',
     description: 'Uma das melhores usuárias de Vento, usa um leque gigante em combate.',
     rarity: 'A',
     jutsus: ['Kiri Kiri Mai', 'Fūton: Tatsu no Ōshigoto', 'Daikamaitachi no Jutsu']
@@ -515,7 +605,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: [],
     stats: { ninjutsu: 88, taijutsu: 70, genjutsu: 75, strength: 75, intelligence: 88, speed: 78 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/7d/Kankur%C5%8D1.png',
+    image: 'https://cdn.myanimelist.net/images/characters/14/131335.jpg',
     description: 'Mestre marionetista da Vila da Areia, usa corvos e formigas mecânicas.',
     rarity: 'A',
     jutsus: ['Kurohigi: Kiki Ippatsu', 'Kurohigi: Sanshōuo', 'Kurohigi: Salamander']
@@ -527,7 +617,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Terra', 'Água'],
     stats: { ninjutsu: 94, taijutsu: 80, genjutsu: 80, strength: 85, intelligence: 90, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/24/Yondaime_Kazekage.png',
+    image: 'https://cdn.myanimelist.net/images/characters/16/158761.jpg',
     description: 'O Quarto Kazekage, capaz de manipular o Pó de Ouro.',
     rarity: 'S',
     jutsus: ['Sakinn no Jutsu', 'Jidō Bōgyo', 'Gold Dust Manipulation']
@@ -539,7 +629,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: [],
     stats: { ninjutsu: 95, taijutsu: 85, genjutsu: 90, strength: 70, intelligence: 98, speed: 80 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/73/Chiyo.png',
+    image: 'https://cdn.myanimelist.net/images/characters/16/158763.jpg',
     description: 'A lendária conselheira de Suna, mestre suprema de marionetes.',
     rarity: 'S',
     jutsus: ['Shirohigi: Jitchippu no Shū', 'Kishō Tensei', 'Puppet Mastery']
@@ -552,7 +642,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Relâmpago', 'Terra', 'Água'],
     stats: { ninjutsu: 92, taijutsu: 98, genjutsu: 60, strength: 100, intelligence: 85, speed: 100 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/4/4c/Fourth_Raikage_2.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/158765.jpg',
     description: 'O Quarto Raikage, famoso por sua velocidade e força bruta eletrizante.',
     rarity: 'S',
     jutsus: ['Rariattu', 'Erubō', 'Raigeki']
@@ -564,7 +654,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Relâmpago', 'Água'],
     stats: { ninjutsu: 94, taijutsu: 96, genjutsu: 80, strength: 95, intelligence: 82, speed: 94 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/6/63/Killer_B.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/158767.jpg',
     description: 'O Jinchuriki do Oito-Caudas e mestre do estilo de sete espadas.',
     rarity: 'S',
     jutsus: ['Lariat', 'Bijū-dama', 'Acrobat']
@@ -576,7 +666,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Água', 'Relâmpago'],
     stats: { ninjutsu: 92, taijutsu: 88, genjutsu: 75, strength: 85, intelligence: 90, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/4/45/Darui.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/158789.jpg',
     description: 'Braço direito do Raikage e mestre do Estilo Tempestade.',
     rarity: 'A',
     mentorId: 36,
@@ -589,7 +679,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Relâmpago'],
     stats: { ninjutsu: 85, taijutsu: 70, genjutsu: 92, strength: 65, intelligence: 94, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/7/7a/Shee.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/158809.jpg',
     description: 'Ninja sensor e médico de elite da Vila da Nuvem.',
     rarity: 'B',
     mentorId: 36,
@@ -602,7 +692,7 @@ const NINJAS: Ninja[] = [
     rank: 'Chunin',
     elements: ['Relâmpago'],
     stats: { ninjutsu: 82, taijutsu: 85, genjutsu: 65, strength: 78, intelligence: 80, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/9/9f/Omoi_Part_II.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/158811.jpg',
     description: 'Um espadachim habilidoso que tende a pensar demais nas situações.',
     rarity: 'B',
     mentorId: 37,
@@ -616,7 +706,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Fogo', 'Água', 'Terra'],
     stats: { ninjutsu: 96, taijutsu: 82, genjutsu: 85, strength: 80, intelligence: 92, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/6/6f/Mei.png',
+    image: 'https://cdn.myanimelist.net/images/characters/15/158769.jpg',
     description: 'A Quinta Mizukage, possui duas Kekkei Genkai: Lava e Fervura.',
     rarity: 'S',
     jutsus: ['Yōton: Yōkai no Jutsu', 'Fūton: Kōmyō no Jutsu', 'Suiton: Suijinheki']
@@ -628,7 +718,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Água'],
     stats: { ninjutsu: 88, taijutsu: 92, genjutsu: 75, strength: 90, intelligence: 85, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/a/a6/Zabuza_OL.png',
+    image: 'https://cdn.myanimelist.net/images/characters/12/158771.jpg',
     description: 'O Demônio da Névoa Oculta, mestre do assassinato silencioso.',
     rarity: 'A',
     jutsus: ['Suiton: Suiryūdan no Jutsu', 'Kirigakure no Jutsu', 'Kubikiribōchū Combat']
@@ -640,7 +730,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Água', 'Vento'],
     stats: { ninjutsu: 90, taijutsu: 85, genjutsu: 80, strength: 70, intelligence: 92, speed: 96 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/3/35/Haku%27s_shinobi_attire.png',
+    image: 'https://cdn.myanimelist.net/images/characters/14/158773.jpg',
     description: 'Portador da Kekkei Genkai de Gelo e fiel seguidor de Zabuza.',
     rarity: 'A',
     mentorId: 42,
@@ -653,7 +743,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Água'],
     stats: { ninjutsu: 85, taijutsu: 88, genjutsu: 70, strength: 82, intelligence: 80, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/d/d8/Chojuro_2.png',
+    image: 'https://cdn.myanimelist.net/images/characters/15/158791.jpg',
     description: 'Um dos Sete Espadachins da Névoa, portador da Hiramekarei.',
     rarity: 'A',
     mentorId: 41,
@@ -666,7 +756,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Água'],
     stats: { ninjutsu: 88, taijutsu: 85, genjutsu: 70, strength: 85, intelligence: 82, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/3/3e/Suigetsu_H%C5%8Dzuki.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/158793.jpg',
     description: 'Capaz de transformar seu corpo em água, busca as espadas da Névoa.',
     rarity: 'B',
     jutsus: ['Suika no Jutsu', 'Suiton: Gōkyaku no Jutsu', 'Sword Combat']
@@ -679,7 +769,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Terra', 'Vento', 'Fogo'],
     stats: { ninjutsu: 98, taijutsu: 60, genjutsu: 85, strength: 65, intelligence: 100, speed: 75 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/6/67/%C5%8Cnoki.png',
+    image: 'https://cdn.myanimelist.net/images/characters/16/158775.jpg',
     description: 'O Terceiro Tsuchikage, mestre do Estilo Poeira (Jinton).',
     rarity: 'S',
     jutsus: ['Jinton: Genkai Hakuri no Jutsu', 'Doton: Kajūgan no Jutsu', 'Flight']
@@ -691,7 +781,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Terra', 'Fogo', 'Água'],
     stats: { ninjutsu: 90, taijutsu: 85, genjutsu: 80, strength: 82, intelligence: 88, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/29/Kurotsuchi_Part_II.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/158795.jpg',
     description: 'Neta de Onoki e futura Tsuchikage, mestre do Estilo Lava.',
     rarity: 'A',
     mentorId: 46,
@@ -704,7 +794,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Terra'],
     stats: { ninjutsu: 85, taijutsu: 88, genjutsu: 65, strength: 95, intelligence: 75, speed: 70 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/16/Akatsuchi_Part_II.png',
+    image: 'https://cdn.myanimelist.net/images/characters/15/158813.jpg',
     description: 'O "Escudo de Iwa", conhecido por sua imensa força e técnicas de terra.',
     rarity: 'B',
     mentorId: 46,
@@ -717,7 +807,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Terra', 'Fogo'],
     stats: { ninjutsu: 94, taijutsu: 85, genjutsu: 75, strength: 90, intelligence: 85, speed: 82 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/3/37/Roshi_OL.png',
+    image: 'https://cdn.myanimelist.net/images/characters/15/158797.jpg',
     description: 'O Jinchuriki do Quatro-Caudas, mestre do Estilo Lava.',
     rarity: 'S',
     jutsus: ['Yōton: Kakugyō no Jutsu', 'Shakuton: Kajō no Jutsu', 'Lava Release']
@@ -730,7 +820,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Fogo'],
     stats: { ninjutsu: 88, taijutsu: 92, genjutsu: 70, strength: 80, intelligence: 85, speed: 95 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/2f/Yugito.png',
+    image: 'https://cdn.myanimelist.net/images/characters/11/158777.jpg',
     description: 'A Jinchuriki de Matatabi (Duas-Caudas), conhecida por sua velocidade e garras flamejantes.',
     rarity: 'S',
     jutsus: ['Katon: Nezumi Kedama', 'Neko-zume', 'Bijū-dama']
@@ -742,7 +832,7 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Água', 'Vento'],
     stats: { ninjutsu: 94, taijutsu: 85, genjutsu: 80, strength: 80, intelligence: 90, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/e/e0/Yagura.png',
+    image: 'https://cdn.myanimelist.net/images/characters/13/158779.jpg',
     description: 'O Quarto Mizukage e Jinchuriki de Isobu (Três-Caudas), controlava perfeitamente sua Bijuu.',
     rarity: 'S',
     jutsus: ['Suiton: Mizukagami no Jutsu', 'Sango Shō', 'Bijū-dama']
@@ -754,7 +844,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Fogo', 'Água'],
     stats: { ninjutsu: 85, taijutsu: 95, genjutsu: 65, strength: 98, intelligence: 80, speed: 92 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/3/3c/Han.png',
+    image: 'https://cdn.myanimelist.net/images/characters/15/158781.jpg',
     description: 'O Jinchuriki de Kokuō (Cinco-Caudas), usa uma armadura a vapor para aumentar sua força e velocidade.',
     rarity: 'S',
     jutsus: ['Futton: Kairiki Musō', 'Funsuiken', 'Bijū-dama']
@@ -766,7 +856,7 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Água'],
     stats: { ninjutsu: 90, taijutsu: 80, genjutsu: 75, strength: 75, intelligence: 85, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/2/27/Utakata.png',
+    image: 'https://cdn.myanimelist.net/images/characters/10/158783.jpg',
     description: 'O Jinchuriki de Saiken (Seis-Caudas), mestre em Ninjutsu de Bolhas de Sabão.',
     rarity: 'S',
     jutsus: ['Suiton: Hōmatsu no Jutsu', 'Santōryū', 'Bijū-dama']
@@ -778,7 +868,7 @@ const NINJAS: Ninja[] = [
     rank: 'Jonin',
     elements: ['Vento'],
     stats: { ninjutsu: 88, taijutsu: 85, genjutsu: 70, strength: 75, intelligence: 82, speed: 94 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/f/f6/Fu.png',
+    image: 'https://cdn.myanimelist.net/images/characters/12/158785.jpg',
     description: 'A Jinchuriki de Chōmei (Sete-Caudas), capaz de voar e usar técnicas de pó de escama.',
     rarity: 'S',
     jutsus: ['Mushikui', 'Hiden: Rinpungakure no Jutsu', 'Bijū-dama']
@@ -790,49 +880,11 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água', 'Madeira', 'Escuridão'],
     stats: { ninjutsu: 100, taijutsu: 100, genjutsu: 100, strength: 100, intelligence: 100, speed: 100 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/8/83/Kid_Hagoromo.png',
+    image: 'https://cdn.myanimelist.net/images/characters/15/254419.jpg',
     description: 'O Sábio dos Seis Caminhos, criador do Ninshu e o primeiro Jinchuriki do Dez-Caudas (Shinju).',
     rarity: 'S',
     jutsus: ['Banbutsu Sōzō', 'Chibaku Tensei', 'Rikudō Senjutsu'],
     dojutsus: ['Rinnegan']
-  },
-  {
-    id: 60,
-    name: 'Sai',
-    village: 'Konoha',
-    rank: 'Chunin',
-    elements: ['Terra', 'Água'],
-    stats: { ninjutsu: 88, taijutsu: 82, genjutsu: 75, strength: 70, intelligence: 92, speed: 85 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/0/07/Sai_Infobox.png',
-    description: 'Um talentoso artista da ANBU Raiz que aprendeu a expressar emoções através do Time 7.',
-    rarity: 'A',
-    mentorId: 11,
-    jutsus: ['Chōjū Giga', 'Sumi-gasumi', 'Koshi Tandan']
-  },
-  {
-    id: 61,
-    name: 'Yamato',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Madeira', 'Terra', 'Água'],
-    stats: { ninjutsu: 92, taijutsu: 85, genjutsu: 80, strength: 82, intelligence: 90, speed: 84 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/f/f7/Yamato_newshot.png',
-    description: 'Um capitão da ANBU e o único sobrevivente dos experimentos de Orochimaru com as células de Hashirama.',
-    rarity: 'A',
-    mentorId: 6,
-    jutsus: ['Mokuton: Jukai Kōtan', 'Mokuton: Mokujōheki', 'Hokage-shiki Jijun Jutsu']
-  },
-  {
-    id: 62,
-    name: 'Iruka Umino',
-    village: 'Konoha',
-    rank: 'Chunin',
-    elements: ['Fogo', 'Água'],
-    stats: { ninjutsu: 75, taijutsu: 72, genjutsu: 70, strength: 68, intelligence: 85, speed: 74 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/b/bc/Iruka.png',
-    description: 'Instrutor da Academia Ninja e a primeira pessoa a reconhecer e acreditar em Naruto.',
-    rarity: 'C',
-    jutsus: ['Kekkai Hōjin', 'Gōkyū no Jutsu']
   },
   {
     id: 63,
@@ -841,37 +893,11 @@ const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Terra', 'Água', 'Vento', 'Fogo'],
     stats: { ninjutsu: 95, taijutsu: 82, genjutsu: 88, strength: 80, intelligence: 98, speed: 88 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/c/c9/Kabuto_Part_1.png',
+    image: 'https://cdn.myanimelist.net/images/characters/14/82459.jpg',
     description: 'Um espião mestre e braço direito de Orochimaru que superou seu mestre ao atingir o Modo Sábio.',
     rarity: 'S',
     mentorId: 11,
     jutsus: ['Senpō: Hakugeki no Jutsu', 'Mura-gasumi', 'Iryō Ninjutsu']
-  },
-  {
-    id: 64,
-    name: 'Madara Uchiha',
-    village: 'Konoha',
-    rank: 'Nukenin',
-    elements: ['Fogo', 'Madeira', 'Terra', 'Vento', 'Relâmpago', 'Água'],
-    stats: { ninjutsu: 100, taijutsu: 100, genjutsu: 100, strength: 98, intelligence: 98, speed: 96 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/f/fd/Madara.png',
-    description: 'O lendário líder do clã Uchiha e co-fundador de Konoha, portador do Rinnegan e do Susanoo perfeito.',
-    rarity: 'S',
-    jutsus: ['Tengai Shinsei', 'Susanoo', 'Katon: Gōka Mekkyaku'],
-    dojutsus: ['Sharingan', 'Rinnegan']
-  },
-  {
-    id: 65,
-    name: 'Danzō Shimura',
-    village: 'Konoha',
-    rank: 'Kage',
-    elements: ['Vento', 'Madeira'],
-    stats: { ninjutsu: 92, taijutsu: 85, genjutsu: 95, strength: 82, intelligence: 96, speed: 80 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/1/17/Danz%C5%8D.png',
-    description: 'O líder da fundação ANBU Raiz, disposto a fazer qualquer coisa para proteger Konoha das sombras.',
-    rarity: 'S',
-    mentorId: 2,
-    jutsus: ['Izanagi', 'Fūton: Shinkūgyoku', 'Mokuton: Jukai Kōtan']
   },
   {
     id: 66,
@@ -880,11 +906,172 @@ const NINJAS: Ninja[] = [
     rank: 'Kage',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água', 'Madeira', 'Escuridão'],
     stats: { ninjutsu: 100, taijutsu: 90, genjutsu: 100, strength: 100, intelligence: 90, speed: 100 },
-    image: 'https://static.wikia.nocookie.net/naruto/images/6/6c/Kaguya_%C5%8Ctsutsuki.png',
+    image: 'https://cdn.myanimelist.net/images/characters/14/254421.jpg',
     description: 'A Progenitora do Chakra e a primeira a possuir chakra no mundo, capaz de manipular dimensões.',
     rarity: 'S',
     jutsus: ['Tomogoroshi no Haikotsu', 'Amenominaka', 'Bōchū Gudōdama'],
     dojutsus: ['Rinne-Sharingan']
+  },
+  // --- Kages do Passado ---
+  {
+    id: 71,
+    name: 'Mū (2º Tsuchikage)',
+    village: 'Iwa',
+    rank: 'Kage',
+    elements: ['Terra', 'Vento', 'Fogo'],
+    stats: { ninjutsu: 98, taijutsu: 85, genjutsu: 80, strength: 80, intelligence: 95, speed: 90 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/158799.jpg',
+    description: 'O Segundo Tsuchikage, conhecido como o "Não-Pessoa" por sua habilidade de apagar sua presença.',
+    rarity: 'S',
+    jutsus: ['Jinton: Genkai Hakuri no Jutsu', 'Camuflagem Física', 'Divisão Corporal']
+  },
+  {
+    id: 72,
+    name: 'Gengetsu Hōzuki (2º Mizukage)',
+    village: 'Kiri',
+    rank: 'Kage',
+    elements: ['Água', 'Fogo', 'Relâmpago', 'Terra'],
+    stats: { ninjutsu: 95, taijutsu: 85, genjutsu: 95, strength: 80, intelligence: 90, speed: 90 },
+    image: 'https://cdn.myanimelist.net/images/characters/13/158801.jpg',
+    description: 'O Segundo Mizukage, mestre em genjutsu de miragem e técnicas do clã Hōzuki.',
+    rarity: 'S',
+    jutsus: ['Mizudeppō no Jutsu', 'Jōki Bōi', 'Genjutsu: Miragem do Marisco']
+  },
+  {
+    id: 73,
+    name: 'A (3º Raikage)',
+    village: 'Kumo',
+    rank: 'Kage',
+    elements: ['Relâmpago', 'Terra', 'Fogo'],
+    stats: { ninjutsu: 90, taijutsu: 100, genjutsu: 70, strength: 100, intelligence: 80, speed: 98 },
+    image: 'https://cdn.myanimelist.net/images/characters/15/158803.jpg',
+    description: 'O Terceiro Raikage, possuía a "lança mais forte" e o "escudo mais forte".',
+    rarity: 'S',
+    jutsus: ['Jigokuzuki', 'Raiton no Yoroi', 'Kuroi Kaminari']
+  },
+  {
+    id: 74,
+    name: 'Terceiro Kazekage',
+    village: 'Suna',
+    rank: 'Kage',
+    elements: ['Vento', 'Terra'],
+    stats: { ninjutsu: 95, taijutsu: 80, genjutsu: 75, strength: 85, intelligence: 90, speed: 85 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/158815.jpg',
+    description: 'Aclamado como o Kazekage mais forte da história de Suna, usuário da Areia de Ferro.',
+    rarity: 'S',
+    jutsus: ['Satetsu Shigure', 'Satetsu Kesshū', 'Satetsu Kaihō']
+  },
+  // --- Time Taka ---
+  {
+    id: 75,
+    name: 'Karin Uzumaki',
+    village: 'Oto',
+    rank: 'Jonin',
+    elements: ['Água', 'Terra'],
+    stats: { ninjutsu: 85, taijutsu: 60, genjutsu: 70, strength: 65, intelligence: 90, speed: 75 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/158805.jpg',
+    description: 'Membro do clã Uzumaki com habilidades sensoriais excepcionais e poder de cura.',
+    rarity: 'B',
+    jutsus: ['Kagura Shingan', 'Correntes de Selamento Adamantinas', 'Mordida de Cura']
+  },
+  {
+    id: 76,
+    name: 'Jūgo',
+    village: 'Oto',
+    rank: 'Jonin',
+    elements: ['Terra', 'Água', 'Vento'],
+    stats: { ninjutsu: 80, taijutsu: 95, genjutsu: 50, strength: 98, intelligence: 70, speed: 85 },
+    image: 'https://cdn.myanimelist.net/images/characters/13/158807.jpg',
+    description: 'A origem do Selo Amaldiçoado, capaz de absorver energia natural passivamente.',
+    rarity: 'A',
+    jutsus: ['Transformação Sábia', 'Katsusatsu Suigetsu', 'Absorção de Chakra']
+  },
+  // --- Quarteto do Som + Kimimaro ---
+  {
+    id: 77,
+    name: 'Kimimaro',
+    village: 'Oto',
+    rank: 'Jonin',
+    elements: ['Terra', 'Água', 'Vento'],
+    stats: { ninjutsu: 85, taijutsu: 98, genjutsu: 60, strength: 90, intelligence: 80, speed: 95 },
+    image: 'https://cdn.myanimelist.net/images/characters/16/158787.jpg',
+    description: 'Último sobrevivente do clã Kaguya, usuário da Kekkei Genkai Shikotsumyaku.',
+    rarity: 'A',
+    jutsus: ['Yanagi no Mai', 'Tessenka no Mai', 'Sawarabi no Mai']
+  },
+  {
+    id: 78,
+    name: 'Tayuya',
+    village: 'Oto',
+    rank: 'Chunin',
+    elements: ['Terra', 'Água', 'Vento'],
+    stats: { ninjutsu: 75, taijutsu: 60, genjutsu: 90, strength: 55, intelligence: 80, speed: 75 },
+    image: 'https://cdn.myanimelist.net/images/characters/13/158817.jpg',
+    description: 'Membro do Quarteto do Som, especialista em Genjutsu baseado em som.',
+    rarity: 'B',
+    jutsus: ['Makyō no Ran', 'Mugen Onsa', 'Invocação: Doki']
+  },
+  {
+    id: 79,
+    name: 'Jirobo',
+    village: 'Oto',
+    rank: 'Chunin',
+    elements: ['Terra'],
+    stats: { ninjutsu: 70, taijutsu: 85, genjutsu: 50, strength: 95, intelligence: 60, speed: 65 },
+    image: 'https://cdn.myanimelist.net/images/characters/15/158819.jpg',
+    description: 'Membro do Quarteto do Som, focado em força bruta e absorção de chakra.',
+    rarity: 'C',
+    jutsus: ['Doton: Kekkai', 'Rakanken', 'Absorção de Chakra']
+  },
+  {
+    id: 80,
+    name: 'Kidomaru',
+    village: 'Oto',
+    rank: 'Chunin',
+    elements: ['Terra', 'Água', 'Vento'],
+    stats: { ninjutsu: 80, taijutsu: 75, genjutsu: 60, strength: 70, intelligence: 85, speed: 80 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/158821.jpg',
+    description: 'Membro do Quarteto do Som, estrategista que usa teias de aranha infundidas com chakra.',
+    rarity: 'B',
+    jutsus: ['Kumo Shibari', 'Kumomayu', 'Amagumo']
+  },
+  {
+    id: 81,
+    name: 'Sakon e Ukon',
+    village: 'Oto',
+    rank: 'Chunin',
+    elements: ['Terra', 'Água', 'Vento'],
+    stats: { ninjutsu: 75, taijutsu: 85, genjutsu: 55, strength: 80, intelligence: 75, speed: 85 },
+    image: 'https://cdn.myanimelist.net/images/characters/13/158823.jpg',
+    description: 'Líderes do Quarteto do Som, irmãos que compartilham o mesmo corpo.',
+    rarity: 'B',
+    jutsus: ['Sōma no Ko', 'Tarenken', 'Rashōmon']
+  },
+  // --- Antepassados e Fundadores ---
+  {
+    id: 82,
+    name: 'Indra Ōtsutsuki',
+    village: 'Desconhecida',
+    rank: 'Kage',
+    elements: ['Fogo', 'Relâmpago', 'Terra', 'Água', 'Vento'],
+    stats: { ninjutsu: 100, taijutsu: 90, genjutsu: 95, strength: 90, intelligence: 95, speed: 95 },
+    image: 'https://cdn.myanimelist.net/images/characters/15/254423.jpg',
+    description: 'Filho mais velho de Hagoromo, criador do Ninjutsu e ancestral do clã Uchiha.',
+    rarity: 'S',
+    jutsus: ['Susanoo', 'Amaterasu', 'Katon: Gōkakyū no Jutsu'],
+    dojutsus: ['Sharingan', 'Mangekyō Sharingan']
+  },
+  {
+    id: 83,
+    name: 'Ashura Ōtsutsuki',
+    village: 'Desconhecida',
+    rank: 'Kage',
+    elements: ['Vento', 'Madeira', 'Terra', 'Água', 'Fogo'],
+    stats: { ninjutsu: 95, taijutsu: 95, genjutsu: 75, strength: 95, intelligence: 85, speed: 90 },
+    image: 'https://cdn.myanimelist.net/images/characters/11/254425.jpg',
+    description: 'Filho mais novo de Hagoromo, herdeiro de sua vontade e ancestral dos clãs Senju e Uzumaki.',
+    rarity: 'S',
+    jutsus: ['Mokuton: Shin Sūsenju', 'Amenomihashira', 'Rasengan (Variante)']
   }
 ];
 
@@ -1095,7 +1282,7 @@ const NinjaCard: React.FC<{
   );
 };
 
-const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void }> = ({ ninjas, onClose }) => {
+const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void; isDarkMode: boolean }> = ({ ninjas, onClose, isDarkMode }) => {
   const data = [
     { subject: 'Ninjutsu', A: ninjas[0].stats.ninjutsu, B: ninjas[1].stats.ninjutsu, full: 100 },
     { subject: 'Taijutsu', A: ninjas[0].stats.taijutsu, B: ninjas[1].stats.taijutsu, full: 100 },
@@ -1107,12 +1294,16 @@ const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void }> = ({ nin
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="absolute inset-0 bg-black/95" />
-      <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#1a1a1a] border-4 border-red-600 rounded-3xl shadow-[0_0_50px_rgba(220,38,38,0.3)] p-8 flex flex-col md:flex-row gap-8">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className={`absolute inset-0 ${isDarkMode ? 'bg-black/95' : 'bg-stone-900/60 backdrop-blur-sm'}`} />
+      <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className={`relative w-full max-w-5xl max-h-[90vh] overflow-y-auto border-4 rounded-3xl p-8 flex flex-col md:flex-row gap-8 transition-colors ${
+        isDarkMode 
+          ? 'bg-[#1a1a1a] border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.3)]' 
+          : 'bg-[#fdfcf0] border-stone-800 shadow-2xl'
+      }`}>
         <div className="flex-1 flex flex-col items-center justify-center space-y-8">
           <div className="flex justify-between w-full">
             <div className="text-center space-y-2">
-              <img src={ninjas[0].image} className="w-24 h-24 object-contain rounded-full border-2 border-red-600 bg-stone-800" referrerPolicy="no-referrer" />
+              <img src={ninjas[0].image} className={`w-24 h-24 object-contain rounded-full border-2 border-red-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
               <p className="text-red-600 font-serif font-bold">{ninjas[0].name}</p>
             </div>
             <div className="flex flex-col items-center justify-center">
@@ -1120,7 +1311,7 @@ const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void }> = ({ nin
               <p className="text-red-600 font-mono text-[10px] uppercase tracking-widest">Modo Sharingan</p>
             </div>
             <div className="text-center space-y-2">
-              <img src={ninjas[1].image} className="w-24 h-24 object-contain rounded-full border-2 border-blue-600 bg-stone-800" referrerPolicy="no-referrer" />
+              <img src={ninjas[1].image} className={`w-24 h-24 object-contain rounded-full border-2 border-blue-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
               <p className="text-blue-600 font-serif font-bold">{ninjas[1].name}</p>
             </div>
           </div>
@@ -1128,8 +1319,8 @@ const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void }> = ({ nin
           <div className="w-full h-[400px]">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-                <PolarGrid stroke="#333" />
-                <PolarAngleAxis dataKey="subject" tick={{ fill: '#666', fontSize: 12 }} />
+                <PolarGrid stroke={isDarkMode ? "#333" : "#ccc"} />
+                <PolarAngleAxis dataKey="subject" tick={{ fill: isDarkMode ? '#666' : '#444', fontSize: 12 }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
                 <Radar name={ninjas[0].name} dataKey="A" stroke="#dc2626" fill="#dc2626" fillOpacity={0.5} />
                 <Radar name={ninjas[1].name} dataKey="B" stroke="#2563eb" fill="#2563eb" fillOpacity={0.5} />
@@ -1139,26 +1330,26 @@ const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void }> = ({ nin
         </div>
         
         <div className="w-full md:w-80 space-y-6">
-          <h3 className="text-2xl font-serif font-black text-white uppercase border-b border-red-600 pb-2">Análise de Combate</h3>
+          <h3 className={`text-2xl font-serif font-black uppercase border-b pb-2 transition-colors ${isDarkMode ? 'text-white border-red-600' : 'text-stone-900 border-stone-800'}`}>Análise de Combate</h3>
           <div className="space-y-4">
             {data.map(stat => (
               <div key={stat.subject} className="space-y-1">
-                <div className="flex justify-between text-[10px] font-mono text-stone-400 uppercase">
-                  <span>{stat.subject}</span>
+                <div className="flex justify-between text-[10px] font-mono uppercase">
+                  <span className={isDarkMode ? 'text-stone-400' : 'text-stone-500'}>{stat.subject}</span>
                   <div className="flex gap-2">
                     <span className="text-red-600">{stat.A}</span>
-                    <span className="text-stone-600">vs</span>
+                    <span className={isDarkMode ? 'text-stone-600' : 'text-stone-400'}>vs</span>
                     <span className="text-blue-600">{stat.B}</span>
                   </div>
                 </div>
-                <div className="h-1 bg-stone-800 rounded-full overflow-hidden flex">
+                <div className={`h-1 rounded-full overflow-hidden flex ${isDarkMode ? 'bg-stone-800' : 'bg-stone-200'}`}>
                   <div style={{ width: `${(stat.A / (stat.A + stat.B)) * 100}%` }} className="h-full bg-red-600" />
                   <div style={{ width: `${(stat.B / (stat.A + stat.B)) * 100}%` }} className="h-full bg-blue-600" />
                 </div>
               </div>
             ))}
           </div>
-          <button onClick={onClose} className="w-full py-3 bg-red-600 text-white font-black uppercase tracking-widest rounded-xl hover:bg-red-700 transition-all">Fechar Dossiê</button>
+          <button onClick={onClose} className="w-full py-3 bg-red-600 text-white font-black uppercase tracking-widest rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-600/20">Fechar Dossiê</button>
         </div>
       </motion.div>
     </div>
@@ -1221,6 +1412,20 @@ const ExpandedNinjaCard: React.FC<{
             }}
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+            <div className="flex flex-wrap gap-2 mb-4">
+              {ninja.elements.map(el => (
+                <div key={el} className="flex items-center gap-1.5 px-2 py-1 rounded bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-wider">
+                  {el === 'Fogo' && <Flame size={12} />}
+                  {el === 'Vento' && <Wind size={12} />}
+                  {el === 'Relâmpago' && <Zap size={12} />}
+                  {el === 'Terra' && <Mountain size={12} />}
+                  {el === 'Água' && <Droplets size={12} />}
+                  {el === 'Madeira' && <Shield size={12} />}
+                  {el === 'Escuridão' && <Skull size={12} />}
+                  <span>{el}</span>
+                </div>
+              ))}
+            </div>
             <div className="flex items-center gap-4 mb-3">
               <div className={`w-12 h-12 rounded-full border-2 overflow-hidden shrink-0 ${isDarkMode ? 'border-stone-600 bg-stone-700' : 'border-white/50 bg-stone-800'}`}>
                 <img src={ninja.image} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
@@ -1235,7 +1440,11 @@ const ExpandedNinjaCard: React.FC<{
         </div>
 
         {/* Right Side: Detailed Stats & Description */}
-        <div className="w-full md:w-3/5 flex-1 p-6 md:p-12 space-y-6 md:space-y-8 overflow-y-auto">
+        <div className={`w-full md:w-3/5 flex-1 p-6 md:p-12 space-y-6 md:space-y-8 overflow-y-auto ${
+          isDarkMode 
+            ? 'bg-gradient-to-br from-stone-900 via-stone-800 to-stone-950' 
+            : 'bg-gradient-to-br from-[#fdfcf0] via-[#f7f5e8] to-[#eaddcf]'
+        }`}>
           <div className="flex items-center gap-4 pr-10 md:pr-12">
             <motion.span layoutId={`rank-${ninja.id}`} className={`text-sm font-black px-4 py-1 rounded border-2 ${ninja.rank === 'Kage' ? 'border-red-600 text-red-600' : isDarkMode ? 'border-stone-600 text-stone-400' : 'border-stone-800 text-stone-800'} uppercase`}>
               {ninja.rank}
@@ -1315,25 +1524,27 @@ const ExpandedNinjaCard: React.FC<{
 
 export default function App() {
   const ninjas = useMemo(() => {
-    const villageOrder: Record<Village, number> = {
-      'Konoha': 1,
-      'Suna': 2,
-      'Kumo': 3,
-      'Kiri': 4,
-      'Iwa': 5,
-      'Akatsuki': 6,
-      'Oto': 7,
-      'Taki': 8,
-      'Desconhecida': 9
-    };
-
     return NINJAS.map(ninja => {
       const wrapProxy = (url: string) => {
         if (!url) return url;
-        // Se for uma imagem da Wikia e não tiver o proxy, adiciona
-        if (url.includes('static.wikia.nocookie.net') && !url.includes('weserv.nl')) {
-          return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+        
+        // Se for uma imagem da Wikia, usa o proxy statically.io que é mais estável para Fandom
+        if (url.includes('static.wikia.nocookie.net')) {
+          // Remove revisões para pegar a original e evitar problemas de cache
+          const cleanUrl = url.split('/revision/')[0];
+          return `https://cdn.statically.io/img/${cleanUrl.replace('https://', '')}`;
         }
+        
+        // Se for GitHub, também podemos usar statically para CDN
+        if (url.includes('raw.githubusercontent.com')) {
+          return url.replace('raw.githubusercontent.com', 'cdn.statically.io/gh').replace('/master/', '/');
+        }
+        
+        // Se for MyAnimeList, usa i0.wp.com (Jetpack) para evitar bloqueios de hotlink
+        if (url.includes('myanimelist.net')) {
+          return `https://i0.wp.com/${url.replace('https://', '')}`;
+        }
+        
         return url;
       };
       
@@ -1341,17 +1552,6 @@ export default function App() {
         ...ninja,
         image: wrapProxy(ninja.image)
       };
-    }).sort((a, b) => {
-      // Ordenar por Vila
-      const villageDiff = (villageOrder[a.village] || 99) - (villageOrder[b.village] || 99);
-      if (villageDiff !== 0) return villageDiff;
-
-      // Ordenar por Rank (Kage primeiro)
-      if (a.rank === 'Kage' && b.rank !== 'Kage') return -1;
-      if (a.rank !== 'Kage' && b.rank === 'Kage') return 1;
-
-      // Ordenar por ID para manter consistência
-      return a.id - b.id;
     });
   }, []);
 
@@ -1446,12 +1646,23 @@ export default function App() {
               placeholder="Buscar ninja pelo nome..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl shadow-sm focus:ring-4 outline-none transition-all font-serif text-lg ${
+              className={`w-full pl-12 pr-12 py-4 border-2 rounded-2xl shadow-sm focus:ring-4 outline-none transition-all font-serif text-lg ${
                 isDarkMode 
                   ? 'bg-stone-900 border-stone-800 text-stone-100 focus:ring-red-900/20 focus:border-red-900' 
                   : 'bg-white border-stone-200 text-stone-900 focus:ring-red-100 focus:border-red-600'
               }`}
             />
+            {search && (
+              <button
+                onClick={() => setSearch('')}
+                className={`absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full transition-colors ${
+                  isDarkMode ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-800' : 'text-stone-400 hover:text-stone-600 hover:bg-stone-100'
+                }`}
+                title="Limpar busca"
+              >
+                <X size={18} />
+              </button>
+            )}
           </div>
 
           <div className="space-y-4">
@@ -1578,6 +1789,7 @@ export default function App() {
             <SharinganMode 
               ninjas={comparisonNinjas} 
               onClose={() => setComparisonIds([])} 
+              isDarkMode={isDarkMode}
             />
           )}
         </AnimatePresence>
@@ -1592,6 +1804,9 @@ export default function App() {
             <Eye size={20} />
           </div>
           <p className={`text-[10px] font-mono uppercase tracking-[0.3em] ${isDarkMode ? 'text-stone-600' : 'text-stone-400'}`}>Propriedade da Aliança Shinobi • Todos os direitos reservados</p>
+          <p className={`text-[10px] font-mono uppercase tracking-[0.3em] ${isDarkMode ? 'text-stone-500' : 'text-stone-500'}`}>
+            Feito por Leonardo Debs com uso de IA - Google IA Studio 🇧🇷
+          </p>
         </div>
       </footer>
     </div>
