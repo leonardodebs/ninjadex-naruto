@@ -2,7 +2,7 @@
 
 O **Ninjadex** é uma aplicação web moderna inspirada no universo de Naruto Shippuden, funcionando como um "Livro Bingo" digital. Ele permite explorar, filtrar e comparar os ninjas mais poderosos das diversas vilas ocultas.
 
-![Ninjadex Preview](https://picsum.photos/seed/naruto/1200/600?blur=2)
+
 
 ## ✨ Funcionalidades
 
