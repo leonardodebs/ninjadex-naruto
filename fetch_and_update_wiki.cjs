@@ -66,22 +66,55 @@ https.get(apiUrl, (res) => {
     });
 }).on('error', err => console.error(err));
 
-function updateNinjasFile(imageMap) {
+async function updateNinjasFile(imageMap) {
     const dataPath = path.join(__dirname, 'src', 'data', 'ninjas.ts');
+    const destDir = path.join(__dirname, 'public', 'assets', 'ninjas');
+    if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+
     let content = fs.readFileSync(dataPath, 'utf8');
 
     for (const name in imageMap) {
-        // Regex para encontrar o bloco desse ninja e atualizar APENAS o image se ele for original ou local não existente
-        // Mas o usuário quer atualizar, então vou sobrescrever.
-        const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`(name:\\s*'${escapedName}',[\\s\\S]*?image:\\s*')([^']+)(')`, 'g');
-        
-        if (content.match(regex)) {
-            console.log(`Updating ${name} image to Wiki URL.`);
-            content = content.replace(regex, `$1${imageMap[name]}$3`);
+        const url = imageMap[name];
+        const fileName = `${name.replace(/\s+/g, '_')}.webp`;
+        const filePath = path.join(destDir, fileName);
+
+        console.log(`Downloading image for ${name}...`);
+        try {
+            await downloadImage(url, filePath);
+            const localPath = `/assets/ninjas/${fileName}`;
+
+            const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(name:\\s*'${escapedName}',[\\s\\S]*?image:\\s*')([^']+)(')`, 'g');
+            
+            if (content.match(regex)) {
+                console.log(`Updating ${name} image to local path: ${localPath}`);
+                content = content.replace(regex, `$1${localPath}$3`);
+            }
+        } catch (err) {
+            console.error(`Failed to download ${name}: ${err.message}`);
         }
     }
 
     fs.writeFileSync(dataPath, content);
-    console.log('ninjas.ts atualizado com links da Wiki.');
+    console.log('ninjas.ts atualizado com referências locais (Wiki download).');
+}
+
+function downloadImage(url, dest) {
+    return new Promise((resolve, reject) => {
+        https.get(url, (res) => {
+            if (res.statusCode !== 200) {
+                reject(new Error(`Status Code: ${res.statusCode}`));
+                return;
+            }
+            const file = fs.createWriteStream(dest);
+            res.pipe(file);
+            file.on('finish', () => {
+                file.close();
+                resolve();
+            });
+        }).on('error', (err) => {
+            fs.unlink(dest, () => {});
+            reject(err);
+        });
+    });
 }
