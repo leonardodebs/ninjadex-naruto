@@ -840,7 +840,7 @@ export const NINJAS: Ninja[] = [
   {
     id: 55,
     name: 'Hagoromo Ōtsutsuki',
-    village: 'Desconhecida',
+    village: 'Otsutsuki',
     rank: 'Kage',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água', 'Madeira', 'Escuridão'],
     stats: { ninjutsu: 100, taijutsu: 100, genjutsu: 100, strength: 100, intelligence: 100, speed: 100 },
@@ -866,7 +866,7 @@ export const NINJAS: Ninja[] = [
   {
     id: 66,
     name: 'Kaguya Ōtsutsuki',
-    village: 'Desconhecida',
+    village: 'Otsutsuki',
     rank: 'Kage',
     elements: ['Fogo', 'Vento', 'Relâmpago', 'Terra', 'Água', 'Madeira', 'Escuridão'],
     stats: { ninjutsu: 100, taijutsu: 90, genjutsu: 100, strength: 100, intelligence: 90, speed: 100 },
@@ -1015,7 +1015,7 @@ export const NINJAS: Ninja[] = [
   {
     id: 82,
     name: 'Indra Ōtsutsuki',
-    village: 'Desconhecida',
+    village: 'Otsutsuki',
     rank: 'Kage',
     elements: ['Fogo', 'Relâmpago', 'Terra', 'Água', 'Vento'],
     stats: { ninjutsu: 100, taijutsu: 90, genjutsu: 95, strength: 90, intelligence: 95, speed: 95 },
@@ -1028,7 +1028,7 @@ export const NINJAS: Ninja[] = [
   {
     id: 83,
     name: 'Ashura Ōtsutsuki',
-    village: 'Desconhecida',
+    village: 'Otsutsuki',
     rank: 'Kage',
     elements: ['Vento', 'Madeira', 'Terra', 'Água', 'Fogo'],
     stats: { ninjutsu: 95, taijutsu: 95, genjutsu: 75, strength: 95, intelligence: 85, speed: 90 },
@@ -1048,5 +1048,6 @@ export const VILLAGES: { id: Village; label: string; color: string }[] = [
   { id: 'Akatsuki', label: 'Akatsuki', color: 'bg-red-900' },
   { id: 'Oto', label: 'Oto', color: 'bg-purple-900' },
   { id: 'Taki', label: 'Taki', color: 'bg-teal-600' },
+  { id: 'Otsutsuki', label: 'Clã Ōtsutsuki', color: 'bg-stone-400' },
   { id: 'Desconhecida', label: 'Outros', color: 'bg-stone-800' }
 ];
