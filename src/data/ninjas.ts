@@ -327,7 +327,7 @@ export const NINJAS: Ninja[] = [
     rank: 'Nukenin',
     elements: ['Fogo', 'Madeira', 'Terra', 'Vento', 'Relâmpago', 'Água'],
     stats: { ninjutsu: 100, taijutsu: 100, genjutsu: 100, strength: 98, intelligence: 98, speed: 96 },
-    image: '/assets/ninjas/Madara_Uchiha.webp',
+    image: '/assets/ninjas/Madara-Uchiha.webp',
     description: 'O lendário líder do clã Uchiha e co-fundador de Konoha, portador do Rinnegan e do Susanoo perfeito.',
     rarity: 'S',
     jutsus: ['Tengai Shinsei', 'Susanoo', 'Katon: Gōka Mekkyaku'],
