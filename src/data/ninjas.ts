@@ -1048,6 +1048,5 @@ export const VILLAGES: { id: Village; label: string; color: string }[] = [
   { id: 'Akatsuki', label: 'Akatsuki', color: 'bg-red-900' },
   { id: 'Oto', label: 'Oto', color: 'bg-purple-900' },
   { id: 'Taki', label: 'Taki', color: 'bg-teal-600' },
-  { id: 'Otsutsuki', label: 'Clã Ōtsutsuki', color: 'bg-stone-400' },
-  { id: 'Desconhecida', label: 'Outros', color: 'bg-stone-800' }
+  { id: 'Otsutsuki', label: 'Clã Ōtsutsuki', color: 'bg-stone-400' }
 ];
