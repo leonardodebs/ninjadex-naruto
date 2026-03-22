@@ -137,9 +137,22 @@ const NinjaCard: React.FC<{
       <div className={`p-4 pt-12 flex justify-between items-start border-b ${isDarkMode ? 'border-stone-700 bg-stone-800/50' : 'border-stone-200 bg-stone-50/50'}`}>
         <div className="flex items-center gap-3">
           <div className={`w-10 h-10 rounded-full border-2 overflow-hidden shrink-0 shadow-inner ${isDarkMode ? 'border-stone-600 bg-stone-700' : 'border-stone-300 bg-stone-200'}`}>
+            {/* Schema SEO para Personagem (Repetido caso abra a página com ele aberto, ajuda a forçar a leitura do Modal) */}
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FictionalCharacter",
+              "name": ninja.name,
+              "description": ninja.description,
+              "image": `https://ninjadex-naruto.vercel.app${ninja.image}`,
+              "memberOf": {
+                "@type": "Organization",
+                "name": ninja.village
+              },
+              "knowsAbout": ninja.jutsus
+            })}} />
             <img 
               src={ninja.image} 
-              alt="" 
+              alt={`Avatar oficial reduzido do personagem ${ninja.name} de Naruto`}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
               loading="lazy"
@@ -226,7 +239,7 @@ const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void; isDarkMode
         <div className="flex-1 flex flex-col items-center justify-center space-y-8">
           <div className="flex justify-between w-full">
             <div className="text-center space-y-2">
-              <img src={ninjas[0].image} className={`w-24 h-24 object-contain rounded-full border-2 border-red-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
+              <img src={ninjas[0].image} alt={`Comparação: ${ninjas[0].name}`} loading="lazy" className={`w-24 h-24 object-contain rounded-full border-2 border-red-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
               <p className="text-red-600 font-serif font-bold">{ninjas[0].name}</p>
             </div>
             <div className="flex flex-col items-center justify-center">
@@ -234,7 +247,7 @@ const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void; isDarkMode
               <p className="text-red-600 font-mono text-[10px] uppercase tracking-widest">Modo Sharingan</p>
             </div>
             <div className="text-center space-y-2">
-              <img src={ninjas[1].image} className={`w-24 h-24 object-contain rounded-full border-2 border-blue-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
+              <img src={ninjas[1].image} alt={`Comparação: ${ninjas[1].name}`} loading="lazy" className={`w-24 h-24 object-contain rounded-full border-2 border-blue-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
               <p className="text-blue-600 font-serif font-bold">{ninjas[1].name}</p>
             </div>
           </div>
@@ -396,7 +409,9 @@ const ExpandedNinjaCard: React.FC<{
                 <p className={`text-[10px] font-mono uppercase mb-2 ${isDarkMode ? 'text-stone-500' : 'text-stone-400'}`}>Discípulos</p>
                 <div className="flex -space-x-2 overflow-hidden">
                   {disciples.map(d => (
-                    <img key={d.id} onClick={() => onNavigate(d.id)} src={d.image} className={`inline-block h-8 w-8 rounded-full ring-2 object-contain cursor-pointer hover:scale-110 transition-transform ${isDarkMode ? 'ring-stone-800 bg-stone-700' : 'ring-white bg-stone-200'}`} referrerPolicy="no-referrer" title={d.name} />
+                    <motion.div key={d.id} title={d.name} whileHover={{ scale: 1.1 }}>
+                      <img onClick={() => onNavigate(d.id)} src={d.image} alt={`Ícone de relação do personagem ${d.name}`} loading="lazy" className={`inline-block h-8 w-8 rounded-full ring-2 object-cover cursor-pointer transition-transform ${isDarkMode ? 'ring-stone-800 bg-stone-700' : 'ring-white bg-stone-200'}`} referrerPolicy="no-referrer" />
+                    </motion.div>
                   ))}
                 </div>
               </div>

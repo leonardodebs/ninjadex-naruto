@@ -93,6 +93,20 @@ export const NinjaCard: React.FC<NinjaCardProps> = ({ ninja, globalRank, mentorN
       onClick={onClick}
       className="w-full max-w-4xl mx-auto bg-gray-900/90 backdrop-blur-xl border border-gray-800 rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-500/10 hover:border-gray-700 transition-all cursor-pointer group relative"
     >
+      {/* SEO: JSON-LD Schema para classificar como Personagem Fictício no Google */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FictionalCharacter",
+        "name": ninja.name,
+        "description": ninja.description,
+        "image": `https://ninjadex-naruto.vercel.app${ninja.image}`,
+        "memberOf": {
+          "@type": "Organization",
+          "name": ninja.village
+        },
+        "knowsAbout": ninja.jutsus
+      })}} />
+
       {/* Background Glow */}
       <div className={`absolute -inset-1 bg-gradient-to-r from-transparent via-${classification.color.split('-')[1]}-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl`} />
 
@@ -102,7 +116,8 @@ export const NinjaCard: React.FC<NinjaCardProps> = ({ ninja, globalRank, mentorN
         <div className="w-full md:w-2/5 relative h-[400px] md:h-auto overflow-hidden bg-gray-950">
           <motion.img 
             src={ninja.image} 
-            alt={ninja.name}
+            alt={`Foto oficial do personagem ${ninja.name} de Naruto`}
+            loading="lazy"
             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
             referrerPolicy="no-referrer"
             onError={(e) => {
