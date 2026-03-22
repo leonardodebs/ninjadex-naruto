@@ -1036,66 +1036,6 @@ export const NINJAS: Ninja[] = [
     description: 'Filho mais novo de Hagoromo, herdeiro de sua vontade e ancestral dos clãs Senju e Uzumaki.',
     rarity: 'S',
     jutsus: ['Mokuton: Shin Sūsenju', 'Amenomihashira', 'Rasengan (Variante)']
-  },
-  {
-    id: 84,
-    name: 'Kushina Uzumaki',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Vento', 'Água'],
-    stats: { ninjutsu: 90, taijutsu: 85, genjutsu: 60, strength: 80, intelligence: 80, speed: 85 },
-    image: '/assets/ninjas/Kushina_Uzumaki.webp',
-    description: 'Mãe do Naruto, ninja muito forte do extinto clã Uzumaki.',
-    rarity: 'S',
-    jutsus: ['Cadeias de Selamento Diamantina', 'Fūinjutsu Shiki Fūjin']
-  },
-  {
-    id: 85,
-    name: 'Yahiko',
-    village: 'Akatsuki',
-    rank: 'Jonin',
-    elements: ['Água', 'Fogo', 'Vento'],
-    stats: { ninjutsu: 85, taijutsu: 80, genjutsu: 60, strength: 75, intelligence: 85, speed: 80 },
-    image: '/assets/ninjas/Yahiko.webp',
-    description: 'Fundador original da Akatsuki junto com a Konan e o Nagato.',
-    rarity: 'A',
-    jutsus: ['Suiton: Mizurappa', 'Suiton: Houmatsu Rappa']
-  },
-  {
-    id: 86,
-    name: 'Konohamaru Sarutobi',
-    village: 'Konoha',
-    rank: 'Genin',
-    elements: ['Fogo', 'Vento'],
-    stats: { ninjutsu: 80, taijutsu: 75, genjutsu: 55, strength: 70, intelligence: 80, speed: 85 },
-    image: '/assets/ninjas/Konohamaru_Sarutobi.webp',
-    description: 'Nesta fase do Shippuden ele já derrota o Caminho Naraka do Pain com o Rasengan.',
-    rarity: 'A',
-    jutsus: ['Rasengan', 'Kage Bunshin no Jutsu', 'Oiroke no Jutsu']
-  },
-  {
-    id: 87,
-    name: 'Shizune',
-    village: 'Konoha',
-    rank: 'Jonin',
-    elements: ['Água'],
-    stats: { ninjutsu: 85, taijutsu: 75, genjutsu: 70, strength: 65, intelligence: 90, speed: 80 },
-    image: '/assets/ninjas/Shizune.webp',
-    description: 'Braço direito da Tsunade e capitã da divisão médica na Guerra.',
-    rarity: 'A',
-    jutsus: ['Dokugiri', 'Chikatsu Saisei no Jutsu']
-  },
-  {
-    id: 88,
-    name: 'Rin Nohara',
-    village: 'Konoha',
-    rank: 'Genin',
-    elements: ['Fogo', 'Água'],
-    stats: { ninjutsu: 70, taijutsu: 60, genjutsu: 75, strength: 55, intelligence: 70, speed: 65 },
-    image: '/assets/ninjas/Rin_Nohara.webp',
-    description: 'A pessoa amada pelo Obito, essencial para a história do Mangekyō do Kakashi e formação do vilão.',
-    rarity: 'B',
-    jutsus: ['Shōsen Jutsu']
   }
 ];
 
@@ -1108,6 +1048,5 @@ export const VILLAGES: { id: Village; label: string; color: string }[] = [
   { id: 'Akatsuki', label: 'Akatsuki', color: 'bg-red-900' },
   { id: 'Oto', label: 'Oto', color: 'bg-purple-900' },
   { id: 'Taki', label: 'Taki', color: 'bg-teal-600' },
-  { id: 'Otsutsuki', label: 'Clã Ōtsutsuki', color: 'bg-stone-400' },
-  { id: 'Desconhecida', label: 'Outros', color: 'bg-stone-800' }
+  { id: 'Otsutsuki', label: 'Clã Ōtsutsuki', color: 'bg-stone-400' }
 ];
