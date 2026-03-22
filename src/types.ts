@@ -1,4 +1,4 @@
-export type Village = 'Konoha' | 'Suna' | 'Kiri' | 'Kumo' | 'Iwa' | 'Akatsuki' | 'Oto' | 'Taki' | 'Otsutsuki';
+export type Village = 'Konoha' | 'Suna' | 'Kiri' | 'Kumo' | 'Iwa' | 'Akatsuki' | 'Oto' | 'Taki' | 'Otsutsuki' | 'Desconhecida';
 export type Rank = 'Genin' | 'Chunin' | 'Jonin' | 'Kage' | 'Nukenin' | 'Sannin';
 export type Element = 'Fogo' | 'Vento' | 'Relâmpago' | 'Terra' | 'Água' | 'Madeira' | 'Escuridão';
 export type Dojutsu = 'Sharingan' | 'Mangekyō Sharingan' | 'Rinnegan' | 'Byakugan' | 'Rinne-Sharingan';
