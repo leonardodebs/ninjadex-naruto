@@ -1,26 +1,165 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NinjaDex - Registro Oficial de Shinobis e Jutsus | Naruto</title>
+    <title>NinjaDex | Guia Completo de Personagens de Naruto Shippuden</title>
+    <link rel="canonical" href="https://ninjadex-naruto.vercel.app/" />
+
+    <!-- SEO Primary Meta Tags -->
     <meta
       name="description"
-      content="Explore o NinjaDex, o guia oficial de shinobis, com status detalhados, Jutsus e afiliações de personagens como Pain, Akatsuki e mais."
+      content="Explore o NinjaDex, o guia completo de 81+ shinobis de Naruto Shippuden. Veja status, jutsus, dōjutsus e afiliações de personagens como Naruto, Sasuke, Itachi, Pain, Madara e Akatsuki. Compare ninjas no Modo Sharingan."
     />
     <meta
       name="keywords"
-      content="Naruto, NinjaDex, Shinobi, Akatsuki, Anime, Jutsus, Pain, Guia Ninja"
+      content="Naruto, Naruto Shippuden, NinjaDex, personagens Naruto, Shinobi, Akatsuki, Jutsus, Pain, Sasuke Uchiha, Naruto Uzumaki, Itachi Uchiha, Madara Uchiha, Kakashi Hatake, Hokage, Sharingan, Rinnegan, Byakugan, Mangekyō Sharingan, Jiraiya, Orochimaru, Gaara, Bijuu, Jinchuriki, Kage, Konoha, guia ninja, anime, mangá, status ninja, Killer Bee, Minato Namikaze"
     />
-    <meta
-      property="og:title"
-      content="NinjaDex - Registro Oficial de Shinobis"
-    />
+    <meta name="author" content="Leonardo Debs" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#991b1b" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ninjadex-naruto.vercel.app/" />
+    <meta property="og:title" content="NinjaDex | Guia Completo de Personagens de Naruto Shippuden" />
     <meta
       property="og:description"
-      content="Descubra os status e habilidades dos ninjas mais poderosos de Naruto."
+      content="Explore o NinjaDex, o guia completo de 81+ shinobis de Naruto Shippuden. Veja status, jutsus, dōjutsus e compare personagens como Naruto, Sasuke, Pain, Madara e Akatsuki."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://ninjadex-naruto.vercel.app/image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="NinjaDex - Guia de Personagens de Naruto Shippuden" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="NinjaDex" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ninjadex-naruto.vercel.app/" />
+    <meta name="twitter:title" content="NinjaDex | Guia Completo de Personagens de Naruto Shippuden" />
+    <meta
+      name="twitter:description"
+      content="Guia completo de 81+ shinobis de Naruto Shippuden com status, jutsus, dōjutsus e comparações. Explore Naruto, Sasuke, Pain, Madara e muito mais."
+    />
+    <meta name="twitter:image" content="https://ninjadex-naruto.vercel.app/image.png" />
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "NinjaDex",
+      "url": "https://ninjadex-naruto.vercel.app",
+      "description": "Guia completo de shinobis de Naruto Shippuden com status detalhados, jutsus, dōjutsus e comparações de personagens.",
+      "inLanguage": "pt-BR",
+      "author": {
+        "@type": "Person",
+        "name": "Leonardo Debs"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: CollectionPage + ItemList (todos os 81 personagens) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "NinjaDex - Todos os Shinobis de Naruto Shippuden",
+      "url": "https://ninjadex-naruto.vercel.app",
+      "description": "Lista completa de 81 shinobis de Naruto Shippuden com status detalhados, jutsus e afiliações.",
+      "inLanguage": "pt-BR",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Shinobis de Naruto Shippuden",
+        "numberOfItems": 81,
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Hashirama Senju", "url": "https://ninjadex-naruto.vercel.app/ninja/hashirama-senju"},
+          {"@type": "ListItem", "position": 2, "name": "Tobirama Senju", "url": "https://ninjadex-naruto.vercel.app/ninja/tobirama-senju"},
+          {"@type": "ListItem", "position": 3, "name": "Hiruzen Sarutobi", "url": "https://ninjadex-naruto.vercel.app/ninja/hiruzen-sarutobi"},
+          {"@type": "ListItem", "position": 4, "name": "Minato Namikaze", "url": "https://ninjadex-naruto.vercel.app/ninja/minato-namikaze"},
+          {"@type": "ListItem", "position": 5, "name": "Tsunade Senju", "url": "https://ninjadex-naruto.vercel.app/ninja/tsunade-senju"},
+          {"@type": "ListItem", "position": 6, "name": "Kakashi Hatake", "url": "https://ninjadex-naruto.vercel.app/ninja/kakashi-hatake"},
+          {"@type": "ListItem", "position": 7, "name": "Yamato", "url": "https://ninjadex-naruto.vercel.app/ninja/yamato"},
+          {"@type": "ListItem", "position": 8, "name": "Naruto Uzumaki", "url": "https://ninjadex-naruto.vercel.app/ninja/naruto-uzumaki"},
+          {"@type": "ListItem", "position": 9, "name": "Sasuke Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/sasuke-uchiha"},
+          {"@type": "ListItem", "position": 10, "name": "Sakura Haruno", "url": "https://ninjadex-naruto.vercel.app/ninja/sakura-haruno"},
+          {"@type": "ListItem", "position": 11, "name": "Sai", "url": "https://ninjadex-naruto.vercel.app/ninja/sai"},
+          {"@type": "ListItem", "position": 12, "name": "Kurenai Yuhi", "url": "https://ninjadex-naruto.vercel.app/ninja/kurenai-yuhi"},
+          {"@type": "ListItem", "position": 13, "name": "Hinata Hyuga", "url": "https://ninjadex-naruto.vercel.app/ninja/hinata-hyuga"},
+          {"@type": "ListItem", "position": 14, "name": "Kiba Inuzuka", "url": "https://ninjadex-naruto.vercel.app/ninja/kiba-inuzuka"},
+          {"@type": "ListItem", "position": 15, "name": "Shino Aburame", "url": "https://ninjadex-naruto.vercel.app/ninja/shino-aburame"},
+          {"@type": "ListItem", "position": 16, "name": "Might Guy", "url": "https://ninjadex-naruto.vercel.app/ninja/might-guy"},
+          {"@type": "ListItem", "position": 17, "name": "Neji Hyuga", "url": "https://ninjadex-naruto.vercel.app/ninja/neji-hyuga"},
+          {"@type": "ListItem", "position": 18, "name": "Rock Lee", "url": "https://ninjadex-naruto.vercel.app/ninja/rock-lee"},
+          {"@type": "ListItem", "position": 19, "name": "Tenten", "url": "https://ninjadex-naruto.vercel.app/ninja/tenten"},
+          {"@type": "ListItem", "position": 20, "name": "Asuma Sarutobi", "url": "https://ninjadex-naruto.vercel.app/ninja/asuma-sarutobi"},
+          {"@type": "ListItem", "position": 21, "name": "Shikamaru Nara", "url": "https://ninjadex-naruto.vercel.app/ninja/shikamaru-nara"},
+          {"@type": "ListItem", "position": 22, "name": "Ino Yamanaka", "url": "https://ninjadex-naruto.vercel.app/ninja/ino-yamanaka"},
+          {"@type": "ListItem", "position": 23, "name": "Choji Akimichi", "url": "https://ninjadex-naruto.vercel.app/ninja/choji-akimichi"},
+          {"@type": "ListItem", "position": 24, "name": "Jiraiya", "url": "https://ninjadex-naruto.vercel.app/ninja/jiraiya"},
+          {"@type": "ListItem", "position": 25, "name": "Madara Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/madara-uchiha"},
+          {"@type": "ListItem", "position": 26, "name": "Izuna Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/izuna-uchiha"},
+          {"@type": "ListItem", "position": 27, "name": "Fugaku Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/fugaku-uchiha"},
+          {"@type": "ListItem", "position": 28, "name": "Shisui Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/shisui-uchiha"},
+          {"@type": "ListItem", "position": 29, "name": "Iruka Umino", "url": "https://ninjadex-naruto.vercel.app/ninja/iruka-umino"},
+          {"@type": "ListItem", "position": 30, "name": "Danzō Shimura", "url": "https://ninjadex-naruto.vercel.app/ninja/danzo-shimura"},
+          {"@type": "ListItem", "position": 31, "name": "Orochimaru", "url": "https://ninjadex-naruto.vercel.app/ninja/orochimaru"},
+          {"@type": "ListItem", "position": 32, "name": "Itachi Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/itachi-uchiha"},
+          {"@type": "ListItem", "position": 33, "name": "Pain (Nagato)", "url": "https://ninjadex-naruto.vercel.app/ninja/pain-nagato"},
+          {"@type": "ListItem", "position": 34, "name": "Konan", "url": "https://ninjadex-naruto.vercel.app/ninja/konan"},
+          {"@type": "ListItem", "position": 35, "name": "Kisame Hoshigaki", "url": "https://ninjadex-naruto.vercel.app/ninja/kisame-hoshigaki"},
+          {"@type": "ListItem", "position": 36, "name": "Deidara", "url": "https://ninjadex-naruto.vercel.app/ninja/deidara"},
+          {"@type": "ListItem", "position": 37, "name": "Sasori", "url": "https://ninjadex-naruto.vercel.app/ninja/sasori"},
+          {"@type": "ListItem", "position": 38, "name": "Hidan", "url": "https://ninjadex-naruto.vercel.app/ninja/hidan"},
+          {"@type": "ListItem", "position": 39, "name": "Kakuzu", "url": "https://ninjadex-naruto.vercel.app/ninja/kakuzu"},
+          {"@type": "ListItem", "position": 40, "name": "Zetsu", "url": "https://ninjadex-naruto.vercel.app/ninja/zetsu"},
+          {"@type": "ListItem", "position": 41, "name": "Obito Uchiha", "url": "https://ninjadex-naruto.vercel.app/ninja/obito-uchiha"},
+          {"@type": "ListItem", "position": 42, "name": "Gaara", "url": "https://ninjadex-naruto.vercel.app/ninja/gaara"},
+          {"@type": "ListItem", "position": 43, "name": "Temari", "url": "https://ninjadex-naruto.vercel.app/ninja/temari"},
+          {"@type": "ListItem", "position": 44, "name": "Kankuro", "url": "https://ninjadex-naruto.vercel.app/ninja/kankuro"},
+          {"@type": "ListItem", "position": 45, "name": "Rasa", "url": "https://ninjadex-naruto.vercel.app/ninja/rasa"},
+          {"@type": "ListItem", "position": 46, "name": "Chiyo", "url": "https://ninjadex-naruto.vercel.app/ninja/chiyo"},
+          {"@type": "ListItem", "position": 47, "name": "A (4º Raikage)", "url": "https://ninjadex-naruto.vercel.app/ninja/a-4-raikage"},
+          {"@type": "ListItem", "position": 48, "name": "Killer Bee", "url": "https://ninjadex-naruto.vercel.app/ninja/killer-bee"},
+          {"@type": "ListItem", "position": 49, "name": "Darui", "url": "https://ninjadex-naruto.vercel.app/ninja/darui"},
+          {"@type": "ListItem", "position": 50, "name": "C (Shee)", "url": "https://ninjadex-naruto.vercel.app/ninja/c-shee"},
+          {"@type": "ListItem", "position": 51, "name": "Omoi", "url": "https://ninjadex-naruto.vercel.app/ninja/omoi"},
+          {"@type": "ListItem", "position": 52, "name": "Mei Terumi", "url": "https://ninjadex-naruto.vercel.app/ninja/mei-terumi"},
+          {"@type": "ListItem", "position": 53, "name": "Zabuza Momochi", "url": "https://ninjadex-naruto.vercel.app/ninja/zabuza-momochi"},
+          {"@type": "ListItem", "position": 54, "name": "Haku", "url": "https://ninjadex-naruto.vercel.app/ninja/haku"},
+          {"@type": "ListItem", "position": 55, "name": "Chojuro", "url": "https://ninjadex-naruto.vercel.app/ninja/chojuro"},
+          {"@type": "ListItem", "position": 56, "name": "Suigetsu Hozuki", "url": "https://ninjadex-naruto.vercel.app/ninja/suigetsu-hozuki"},
+          {"@type": "ListItem", "position": 57, "name": "Onoki", "url": "https://ninjadex-naruto.vercel.app/ninja/onoki"},
+          {"@type": "ListItem", "position": 58, "name": "Kurotsuchi", "url": "https://ninjadex-naruto.vercel.app/ninja/kurotsuchi"},
+          {"@type": "ListItem", "position": 59, "name": "Akatsuchi", "url": "https://ninjadex-naruto.vercel.app/ninja/akatsuchi"},
+          {"@type": "ListItem", "position": 60, "name": "Roshi", "url": "https://ninjadex-naruto.vercel.app/ninja/roshi"},
+          {"@type": "ListItem", "position": 61, "name": "Yugito Nii", "url": "https://ninjadex-naruto.vercel.app/ninja/yugito-nii"},
+          {"@type": "ListItem", "position": 62, "name": "Yagura Karatachi", "url": "https://ninjadex-naruto.vercel.app/ninja/yagura-karatachi"},
+          {"@type": "ListItem", "position": 63, "name": "Han", "url": "https://ninjadex-naruto.vercel.app/ninja/han"},
+          {"@type": "ListItem", "position": 64, "name": "Utakata", "url": "https://ninjadex-naruto.vercel.app/ninja/utakata"},
+          {"@type": "ListItem", "position": 65, "name": "Fū", "url": "https://ninjadex-naruto.vercel.app/ninja/fu"},
+          {"@type": "ListItem", "position": 66, "name": "Hagoromo Ōtsutsuki", "url": "https://ninjadex-naruto.vercel.app/ninja/hagoromo-otsutsuki"},
+          {"@type": "ListItem", "position": 67, "name": "Kabuto Yakushi", "url": "https://ninjadex-naruto.vercel.app/ninja/kabuto-yakushi"},
+          {"@type": "ListItem", "position": 68, "name": "Kaguya Ōtsutsuki", "url": "https://ninjadex-naruto.vercel.app/ninja/kaguya-otsutsuki"},
+          {"@type": "ListItem", "position": 69, "name": "Mū (2º Tsuchikage)", "url": "https://ninjadex-naruto.vercel.app/ninja/mu-2-tsuchikage"},
+          {"@type": "ListItem", "position": 70, "name": "Gengetsu Hōzuki (2º Mizukage)", "url": "https://ninjadex-naruto.vercel.app/ninja/gengetsu-hozuki-2-mizukage"},
+          {"@type": "ListItem", "position": 71, "name": "A (3º Raikage)", "url": "https://ninjadex-naruto.vercel.app/ninja/a-3-raikage"},
+          {"@type": "ListItem", "position": 72, "name": "Terceiro Kazekage", "url": "https://ninjadex-naruto.vercel.app/ninja/terceiro-kazekage"},
+          {"@type": "ListItem", "position": 73, "name": "Karin Uzumaki", "url": "https://ninjadex-naruto.vercel.app/ninja/karin-uzumaki"},
+          {"@type": "ListItem", "position": 74, "name": "Jūgo", "url": "https://ninjadex-naruto.vercel.app/ninja/jugo"},
+          {"@type": "ListItem", "position": 75, "name": "Kimimaro", "url": "https://ninjadex-naruto.vercel.app/ninja/kimimaro"},
+          {"@type": "ListItem", "position": 76, "name": "Tayuya", "url": "https://ninjadex-naruto.vercel.app/ninja/tayuya"},
+          {"@type": "ListItem", "position": 77, "name": "Jirobo", "url": "https://ninjadex-naruto.vercel.app/ninja/jirobo"},
+          {"@type": "ListItem", "position": 78, "name": "Kidomaru", "url": "https://ninjadex-naruto.vercel.app/ninja/kidomaru"},
+          {"@type": "ListItem", "position": 79, "name": "Sakon e Ukon", "url": "https://ninjadex-naruto.vercel.app/ninja/sakon-e-ukon"},
+          {"@type": "ListItem", "position": 80, "name": "Indra Ōtsutsuki", "url": "https://ninjadex-naruto.vercel.app/ninja/indra-otsutsuki"},
+          {"@type": "ListItem", "position": 81, "name": "Ashura Ōtsutsuki", "url": "https://ninjadex-naruto.vercel.app/ninja/ashura-otsutsuki"}
+        ]
+      }
+    }
+    </script>
 
     <!-- Segurança: CSP e HSTS -->
     <meta
@@ -29,7 +168,7 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://static.wikia.nocookie.net https://images.weserv.nl https://cdn.myanimelist.net https://picsum.photos https://fastly.picsum.photos https://i0.wp.com https://cdn.statically.io https://www.google-analytics.com; connect-src 'self' ws: wss: https://www.google-analytics.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://static.wikia.nocookie.net https://images.weserv.nl https://cdn.myanimelist.net https://picsum.photos https://fastly.picsum.photos https://i0.wp.com https://cdn.statically.io https://www.google-analytics.com https://www.transparenttextures.com; connect-src 'self' ws: wss: https://www.google-analytics.com;"
     />
 
     <!-- Google tag (gtag.js) -->

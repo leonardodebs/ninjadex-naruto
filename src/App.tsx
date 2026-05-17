@@ -3,13 +3,33 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { Search, Shield, Zap, Wind, Flame, Droplets, Mountain, Skull, Star, Info, Users, ArrowRightLeft, Eye, X, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 import { NINJAS, VILLAGES, ELEMENTS, DOJUTSUS, RARITIES } from './data/ninjas';
 import { Ninja, Village, Element, Dojutsu, Rarity } from './types';
+
+const DEFAULT_TITLE = 'NinjaDex | Guia Completo de Personagens de Naruto Shippuden';
+const DEFAULT_DESC = 'Explore o NinjaDex, o guia completo de 81+ shinobis de Naruto Shippuden. Veja status, jutsus, dōjutsus e afiliações de personagens como Naruto, Sasuke, Pain, Madara e Akatsuki.';
+
+const slugify = (name: string) =>
+  name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+const setMeta = (title: string, desc: string) => {
+  document.title = title;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
+};
 // --- Components ---
 
 const ElementBadge: React.FC<{ element: Element }> = ({ element }) => {
@@ -503,7 +523,52 @@ export default function App() {
   const [isChidoriMode, setIsChidoriMode] = useState(false);
   const [typedKeys, setTypedKeys] = useState('');
 
-  React.useEffect(() => {
+  const openNinja = useCallback((ninja: Ninja) => {
+    setSelectedNinjaId(ninja.id);
+    window.history.pushState({ ninjaId: ninja.id }, '', `/ninja/${slugify(ninja.name)}`);
+    setMeta(
+      `${ninja.name} | NinjaDex - Naruto Shippuden`,
+      `${ninja.name}: ${ninja.description} Aldeia: ${ninja.village}. Jutsus: ${ninja.jutsus.slice(0, 3).join(', ')}.`
+    );
+  }, []);
+
+  const closeNinja = useCallback(() => {
+    setSelectedNinjaId(null);
+    window.history.pushState({}, '', '/');
+    setMeta(DEFAULT_TITLE, DEFAULT_DESC);
+  }, []);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    const match = path.match(/^\/ninja\/(.+)$/);
+    if (match) {
+      const found = ninjas.find(n => slugify(n.name) === match[1]);
+      if (found) {
+        setSelectedNinjaId(found.id);
+        setMeta(`${found.name} | NinjaDex - Naruto Shippuden`,
+          `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`
+        );
+      }
+    }
+    const handlePopState = () => {
+      const p = window.location.pathname;
+      const m = p.match(/^\/ninja\/(.+)$/);
+      if (m) {
+        const found = ninjas.find(n => slugify(n.name) === m[1]);
+        setSelectedNinjaId(found?.id ?? null);
+        if (found) setMeta(`${found.name} | NinjaDex - Naruto Shippuden`,
+          `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`
+        );
+      } else {
+        setSelectedNinjaId(null);
+        setMeta(DEFAULT_TITLE, DEFAULT_DESC);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [ninjas]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const newTyped = (typedKeys + e.key).slice(-7);
       setTypedKeys(newTyped);
@@ -691,10 +756,10 @@ export default function App() {
           {filteredNinjas.length > 0 ? (
             <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {filteredNinjas.map(ninja => (
-                <NinjaCard 
-                  key={ninja.id} 
-                  ninja={ninja} 
-                  onClick={() => setSelectedNinjaId(ninja.id)}
+                <NinjaCard
+                  key={ninja.id}
+                  ninja={ninja}
+                  onClick={() => openNinja(ninja)}
                   isSelectedForComparison={comparisonIds.includes(ninja.id)}
                   onCompareToggle={(e) => {
                     e.stopPropagation();
@@ -715,10 +780,10 @@ export default function App() {
         {/* Modals */}
         <AnimatePresence>
           {selectedNinja && (
-            <ExpandedNinjaCard 
-              ninja={selectedNinja} 
-              onClose={() => setSelectedNinjaId(null)} 
-              onNavigate={(id) => setSelectedNinjaId(id)}
+            <ExpandedNinjaCard
+              ninja={selectedNinja}
+              onClose={closeNinja}
+              onNavigate={(id) => { const n = ninjas.find(nj => nj.id === id); if (n) openNinja(n); }}
               allNinjas={ninjas}
               isDarkMode={isDarkMode}
             />
