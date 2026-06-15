@@ -22,13 +22,26 @@ const slugify = (name: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 
-const setMeta = (title: string, desc: string) => {
+const setCanonical = (url: string) => {
+  let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!el) {
+    el = document.createElement('link');
+    el.rel = 'canonical';
+    document.head.appendChild(el);
+  }
+  el.href = url;
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', url);
+  document.querySelector('meta[name="twitter:url"]')?.setAttribute('content', url);
+};
+
+const setMeta = (title: string, desc: string, canonicalUrl?: string) => {
   document.title = title;
   document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
   document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
+  if (canonicalUrl) setCanonical(canonicalUrl);
 };
 // --- Components ---
 
@@ -524,18 +537,21 @@ export default function App() {
   const [typedKeys, setTypedKeys] = useState('');
 
   const openNinja = useCallback((ninja: Ninja) => {
+    const slug = slugify(ninja.name);
+    const url = `https://ninjadex-naruto.vercel.app/ninja/${slug}`;
     setSelectedNinjaId(ninja.id);
-    window.history.pushState({ ninjaId: ninja.id }, '', `/ninja/${slugify(ninja.name)}`);
+    window.history.pushState({ ninjaId: ninja.id }, '', `/ninja/${slug}`);
     setMeta(
       `${ninja.name} | NinjaDex - Naruto Shippuden`,
-      `${ninja.name}: ${ninja.description} Aldeia: ${ninja.village}. Jutsus: ${ninja.jutsus.slice(0, 3).join(', ')}.`
+      `${ninja.name}: ${ninja.description} Aldeia: ${ninja.village}. Jutsus: ${ninja.jutsus.slice(0, 3).join(', ')}.`,
+      url
     );
   }, []);
 
   const closeNinja = useCallback(() => {
     setSelectedNinjaId(null);
     window.history.pushState({}, '', '/');
-    setMeta(DEFAULT_TITLE, DEFAULT_DESC);
+    setMeta(DEFAULT_TITLE, DEFAULT_DESC, 'https://ninjadex-naruto.vercel.app/');
   }, []);
 
   useEffect(() => {
@@ -544,9 +560,12 @@ export default function App() {
     if (match) {
       const found = ninjas.find(n => slugify(n.name) === match[1]);
       if (found) {
+        const url = `https://ninjadex-naruto.vercel.app/ninja/${match[1]}`;
         setSelectedNinjaId(found.id);
-        setMeta(`${found.name} | NinjaDex - Naruto Shippuden`,
-          `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`
+        setMeta(
+          `${found.name} | NinjaDex - Naruto Shippuden`,
+          `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`,
+          url
         );
       }
     }
@@ -556,12 +575,14 @@ export default function App() {
       if (m) {
         const found = ninjas.find(n => slugify(n.name) === m[1]);
         setSelectedNinjaId(found?.id ?? null);
-        if (found) setMeta(`${found.name} | NinjaDex - Naruto Shippuden`,
-          `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`
+        if (found) setMeta(
+          `${found.name} | NinjaDex - Naruto Shippuden`,
+          `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`,
+          `https://ninjadex-naruto.vercel.app/ninja/${m[1]}`
         );
       } else {
         setSelectedNinjaId(null);
-        setMeta(DEFAULT_TITLE, DEFAULT_DESC);
+        setMeta(DEFAULT_TITLE, DEFAULT_DESC, 'https://ninjadex-naruto.vercel.app/');
       }
     };
     window.addEventListener('popstate', handlePopState);
