@@ -61,7 +61,11 @@ const buildDescription = (n: Ninja): string => {
  * indexavel no HTML cru e como primeira pintura para quem esta em conexao lenta.
  */
 const buildBody = (n: Ninja, url: string): string => {
-  const elements = n.elements.map((e) => esc(e)).join(' &middot; ');
+  // Alguns personagens nao tem elemento ou dojutsu cadastrado; omite a linha
+  // inteira em vez de deixar um rotulo vazio no HTML.
+  const elements = n.elements?.length
+    ? `<p><strong>Elementos:</strong> ${n.elements.map((e) => esc(e)).join(' &middot; ')}</p>`
+    : '';
   const dojutsus = n.dojutsus?.length
     ? `<p><strong>Dōjutsus:</strong> ${n.dojutsus.map((d) => esc(d)).join(' &middot; ')}</p>`
     : '';
@@ -76,7 +80,7 @@ const buildBody = (n: Ninja, url: string): string => {
           ${esc(n.village)} &middot; Rank ${esc(n.rank)} &middot; Classificação ${esc(n.rarity)}
         </p>
         <p>${esc(n.description)}</p>
-        <p><strong>Elementos:</strong> ${elements}</p>
+        ${elements}
         ${dojutsus}
         <h2 style="font-size:1.15rem;margin-top:28px">Principais jutsus</h2>
         <ul>${jutsus}</ul>
