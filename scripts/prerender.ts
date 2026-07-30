@@ -93,8 +93,40 @@ const buildBody = (n: Ninja, url: string): string => {
           <li>Inteligência: ${s.intelligence}</li>
           <li>Velocidade: ${s.speed}</li>
         </ul>
-        <p><a href="${esc(url)}" style="color:#991b1b">${esc(n.name)} no NinjaDex</a></p>
+${buildRelatedLinks(n)}
       </main>`;
+};
+
+/**
+ * Links internos rastreaveis entre personagens. Sem eles o Googlebot nao tem
+ * como descobrir as paginas: o Search Console reportava "Nenhuma pagina de
+ * referencia foi detectada" porque os cards da home sao <div onClick>, nao <a>.
+ */
+const buildRelatedLinks = (n: Ninja): string => {
+  const link = (o: Ninja) =>
+    `<li><a href="/ninja/${slugify(o.name)}" style="color:#991b1b">${esc(o.name)}</a></li>`;
+
+  const mentor = n.mentorId ? NINJAS.find((o) => o.id === n.mentorId) : undefined;
+  const disciples = NINJAS.filter((o) => o.mentorId === n.id);
+
+  const relacionados = NINJAS.filter(
+    (o) => o.id !== n.id && o.village === n.village && o.id !== mentor?.id,
+  ).slice(0, 8);
+
+  const blocos: string[] = [];
+  if (mentor) blocos.push(`<h2 style="font-size:1.15rem;margin-top:28px">Mestre</h2><ul>${link(mentor)}</ul>`);
+  if (disciples.length)
+    blocos.push(
+      `<h2 style="font-size:1.15rem;margin-top:28px">Discípulos</h2><ul>${disciples.map(link).join('')}</ul>`,
+    );
+  if (relacionados.length)
+    blocos.push(
+      `<h2 style="font-size:1.15rem;margin-top:28px">Outros shinobis de ${esc(n.village)}</h2><ul>${relacionados
+        .map(link)
+        .join('')}</ul>`,
+    );
+
+  return `        ${blocos.join('\n        ')}`;
 };
 
 const buildStructuredData = (n: Ninja, url: string): string => {
@@ -190,6 +222,38 @@ const renderPage = (template: string, n: Ninja): string => {
   return html;
 };
 
+/**
+ * Indice rastreavel na home. Da ao Googlebot 81 links <a href> no HTML cru,
+ * que e o unico caminho de descoberta enquanto o sitemap nao e relido.
+ */
+const buildHomeIndex = (): string => {
+  const porAldeia = new Map<string, Ninja[]>();
+  for (const n of NINJAS) {
+    const lista = porAldeia.get(n.village) ?? [];
+    lista.push(n);
+    porAldeia.set(n.village, lista);
+  }
+
+  const secoes = [...porAldeia.entries()]
+    .map(([aldeia, lista]) => {
+      const itens = lista
+        .map(
+          (n) =>
+            `<li><a href="/ninja/${slugify(n.name)}" style="color:#991b1b">${esc(n.name)}</a></li>`,
+        )
+        .join('');
+      return `<h2 style="font-size:1.1rem;margin-top:24px">${esc(aldeia)}</h2><ul>${itens}</ul>`;
+    })
+    .join('\n        ');
+
+  return `
+      <main style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7;color:#1c1917">
+        <h1 style="font-size:2rem;color:#991b1b;margin:0 0 4px">NinjaDex</h1>
+        <p style="color:#78716c">Guia completo de ${NINJAS.length} shinobis de Naruto Shippuden, com status, jutsus e dōjutsus.</p>
+        ${secoes}
+      </main>`;
+};
+
 const main = () => {
   const templatePath = join(DIST, 'index.html');
   const template = readFileSync(templatePath, 'utf8');
@@ -209,7 +273,24 @@ const main = () => {
     count++;
   }
 
-  console.log(`prerender: ${count} paginas de personagem geradas em dist/ninja/`);
+  // A home e reescrita por ultimo, ja que o template acima veio dela.
+  if (!template.includes('<div id="root"></div>')) {
+    throw new Error('container #root vazio nao encontrado no template da home');
+  }
+  const home = template.replace(
+    '<div id="root"></div>',
+    `<div id="root">${buildHomeIndex()}\n    </div>`,
+  );
+  writeFileSync(templatePath, home, 'utf8');
+
+  const linksNaHome = [...home.matchAll(/href="\/ninja\//g)].length;
+  if (linksNaHome !== count) {
+    throw new Error(`home tem ${linksNaHome} links, esperado ${count}`);
+  }
+
+  console.log(
+    `prerender: ${count} paginas de personagem geradas, home com ${linksNaHome} links rastreaveis`,
+  );
 };
 
 main();
