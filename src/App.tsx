@@ -170,7 +170,23 @@ const NinjaCard: React.FC<{
             />
           </div>
           <div>
-            <motion.h3 layoutId={`name-${ninja.id}`} className={`text-lg font-serif font-bold leading-tight ${isDarkMode ? 'text-stone-100' : 'text-stone-800'}`}>{ninja.name}</motion.h3>
+            {/*
+              Link real (<a href>) em vez de so onClick: e por ele que o Googlebot
+              descobre a pagina do personagem quando renderiza o JS, e e o que
+              permite abrir em nova aba. No clique simples o padrao e cancelado e
+              quem abre o modal e o onClick do card.
+            */}
+            <a
+              href={`/ninja/${slugify(ninja.name)}`}
+              onClick={(e) => {
+                const novaAba = e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0;
+                if (novaAba) e.stopPropagation();
+                else e.preventDefault();
+              }}
+              className="no-underline hover:underline"
+            >
+              <motion.h3 layoutId={`name-${ninja.id}`} className={`text-lg font-serif font-bold leading-tight ${isDarkMode ? 'text-stone-100' : 'text-stone-800'}`}>{ninja.name}</motion.h3>
+            </a>
             <motion.p layoutId={`id-${ninja.id}`} className={`text-[10px] font-mono uppercase tracking-[0.2em] ${isDarkMode ? 'text-stone-500' : 'text-stone-400'}`}>ID: #{ninja.id.toString().padStart(4, '0')}</motion.p>
           </div>
         </div>
