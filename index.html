@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NinjaDex | Guia Completo de Personagens de Naruto Shippuden</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://ninjadex-naruto.vercel.app/" />
 
     <!-- SEO Primary Meta Tags -->
@@ -18,7 +19,6 @@
     <meta name="author" content="Leonardo Debs" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#991b1b" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -161,30 +161,11 @@
     }
     </script>
 
-    <!-- Segurança: CSP e HSTS -->
-    <meta
-      http-equiv="Strict-Transport-Security"
-      content="max-age=31536000; includeSubDomains"
-    />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://static.wikia.nocookie.net https://images.weserv.nl https://cdn.myanimelist.net https://picsum.photos https://fastly.picsum.photos https://i0.wp.com https://cdn.statically.io https://www.google-analytics.com https://www.transparenttextures.com; connect-src 'self' ws: wss: https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://www.googletagmanager.com;"
-    />
-
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-YTGFZY41N4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-YTGFZY41N4");
-    </script>
+    <!--
+      CSP, HSTS e demais headers de seguranca sao enviados como headers HTTP
+      reais pelo vercel.json (meta http-equiv de HSTS e ignorado pelos browsers).
+      O Google Analytics e carregado dinamicamente apos consentimento (src/analytics.ts).
+    -->
   </head>
   <body>
     <div id="root"></div>
