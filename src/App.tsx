@@ -3,46 +3,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, lazy, Suspense } from 'react';
 import { Search, Shield, Zap, Wind, Flame, Droplets, Mountain, Skull, Star, Info, Users, ArrowRightLeft, Eye, X, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 import { NINJAS, VILLAGES, ELEMENTS, DOJUTSUS, RARITIES } from './data/ninjas';
 import { Ninja, Village, Element, Dojutsu, Rarity } from './types';
+import { initAnalytics } from './analytics';
+import CookieConsent from './components/CookieConsent';
+import { DEFAULT_TITLE, DEFAULT_DESC, SITE_URL, slugify, jsonLd, setMeta } from './seo';
 
-const DEFAULT_TITLE = 'NinjaDex | Guia Completo de Personagens de Naruto Shippuden';
-const DEFAULT_DESC = 'Explore o NinjaDex, o guia completo de 81+ shinobis de Naruto Shippuden. Veja status, jutsus, dōjutsus e afiliações de personagens como Naruto, Sasuke, Pain, Madara e Akatsuki.';
+// Carregado sob demanda: isola o recharts (grafico) do bundle inicial.
+const SharinganMode = lazy(() => import('./components/SharinganMode'));
 
-const slugify = (name: string) =>
-  name
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-
-const setCanonical = (url: string) => {
-  let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-  if (!el) {
-    el = document.createElement('link');
-    el.rel = 'canonical';
-    document.head.appendChild(el);
-  }
-  el.href = url;
-  document.querySelector('meta[property="og:url"]')?.setAttribute('content', url);
-  document.querySelector('meta[name="twitter:url"]')?.setAttribute('content', url);
-};
-
-const setMeta = (title: string, desc: string, canonicalUrl?: string) => {
-  document.title = title;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
-  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
-  document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
-  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
-  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
-  if (canonicalUrl) setCanonical(canonicalUrl);
-};
 // --- Components ---
 
 const ElementBadge: React.FC<{ element: Element }> = ({ element }) => {
@@ -136,7 +109,7 @@ const NinjaCard: React.FC<{
       }`}
     >
       {/* Paper Texture Overlay */}
-      <div className={`absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper.png')] ${isDarkMode ? 'invert' : ''}`} />
+      <div className={`absolute inset-0 opacity-10 pointer-events-none bg-[url('/assets/paper-texture.svg')] ${isDarkMode ? 'invert' : ''}`} />
       
       {/* Rarity Badge */}
       <div className="absolute top-2 left-2 z-10">
@@ -171,12 +144,12 @@ const NinjaCard: React.FC<{
         <div className="flex items-center gap-3">
           <div className={`w-10 h-10 rounded-full border-2 overflow-hidden shrink-0 shadow-inner ${isDarkMode ? 'border-stone-600 bg-stone-700' : 'border-stone-300 bg-stone-200'}`}>
             {/* Schema SEO para Personagem (Repetido caso abra a página com ele aberto, ajuda a forçar a leitura do Modal) */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "FictionalCharacter",
               "name": ninja.name,
               "description": ninja.description,
-              "image": `https://ninjadex-naruto.vercel.app${ninja.image}`,
+              "image": `${SITE_URL}${ninja.image}`,
               "memberOf": {
                 "@type": "Organization",
                 "name": ninja.village
@@ -190,7 +163,9 @@ const NinjaCard: React.FC<{
               referrerPolicy="no-referrer"
               loading="lazy"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${ninja.id}/100/100`;
+                const t = e.target as HTMLImageElement;
+                t.onerror = null;
+                t.src = '/assets/placeholder.svg';
               }}
             />
           </div>
@@ -214,7 +189,7 @@ const NinjaCard: React.FC<{
           referrerPolicy="no-referrer"
           loading="lazy"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${ninja.id}/400/400`;
+            (e.target as HTMLImageElement).src = `/assets/placeholder.svg`;
           }}
         />
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent flex flex-col gap-2">
@@ -251,80 +226,6 @@ const NinjaCard: React.FC<{
   );
 };
 
-const SharinganMode: React.FC<{ ninjas: Ninja[]; onClose: () => void; isDarkMode: boolean }> = ({ ninjas, onClose, isDarkMode }) => {
-  const data = [
-    { subject: 'Ninjutsu', A: ninjas[0].stats.ninjutsu, B: ninjas[1].stats.ninjutsu, full: 100 },
-    { subject: 'Taijutsu', A: ninjas[0].stats.taijutsu, B: ninjas[1].stats.taijutsu, full: 100 },
-    { subject: 'Genjutsu', A: ninjas[0].stats.genjutsu, B: ninjas[1].stats.genjutsu, full: 100 },
-    { subject: 'Força', A: ninjas[0].stats.strength, B: ninjas[1].stats.strength, full: 100 },
-    { subject: 'Inteligência', A: ninjas[0].stats.intelligence, B: ninjas[1].stats.intelligence, full: 100 },
-    { subject: 'Velocidade', A: ninjas[0].stats.speed, B: ninjas[1].stats.speed, full: 100 },
-  ];
-
-  return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className={`absolute inset-0 ${isDarkMode ? 'bg-black/95' : 'bg-stone-900/60 backdrop-blur-sm'}`} />
-      <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className={`relative w-full max-w-5xl max-h-[90vh] overflow-y-auto border-4 rounded-3xl p-8 flex flex-col md:flex-row gap-8 transition-colors ${
-        isDarkMode 
-          ? 'bg-[#1a1a1a] border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.3)]' 
-          : 'bg-[#fdfcf0] border-stone-800 shadow-2xl'
-      }`}>
-        <div className="flex-1 flex flex-col items-center justify-center space-y-8">
-          <div className="flex justify-between w-full">
-            <div className="text-center space-y-2">
-              <img src={ninjas[0].image} alt={`Comparação: ${ninjas[0].name}`} loading="lazy" className={`w-24 h-24 object-contain rounded-full border-2 border-red-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
-              <p className="text-red-600 font-serif font-bold">{ninjas[0].name}</p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <Eye className="text-red-600 animate-pulse" size={48} />
-              <p className="text-red-600 font-mono text-[10px] uppercase tracking-widest">Modo Sharingan</p>
-            </div>
-            <div className="text-center space-y-2">
-              <img src={ninjas[1].image} alt={`Comparação: ${ninjas[1].name}`} loading="lazy" className={`w-24 h-24 object-contain rounded-full border-2 border-blue-600 ${isDarkMode ? 'bg-stone-800' : 'bg-stone-100'}`} referrerPolicy="no-referrer" />
-              <p className="text-blue-600 font-serif font-bold">{ninjas[1].name}</p>
-            </div>
-          </div>
-          
-          <div className="w-full h-[400px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-                <PolarGrid stroke={isDarkMode ? "#333" : "#ccc"} />
-                <PolarAngleAxis dataKey="subject" tick={{ fill: isDarkMode ? '#666' : '#444', fontSize: 12 }} />
-                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                <Radar name={ninjas[0].name} dataKey="A" stroke="#dc2626" fill="#dc2626" fillOpacity={0.5} />
-                <Radar name={ninjas[1].name} dataKey="B" stroke="#2563eb" fill="#2563eb" fillOpacity={0.5} />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-        
-        <div className="w-full md:w-80 space-y-6">
-          <h3 className={`text-2xl font-serif font-black uppercase border-b pb-2 transition-colors ${isDarkMode ? 'text-white border-red-600' : 'text-stone-900 border-stone-800'}`}>Análise de Combate</h3>
-          <div className="space-y-4">
-            {data.map(stat => (
-              <div key={stat.subject} className="space-y-1">
-                <div className="flex justify-between text-[10px] font-mono uppercase">
-                  <span className={isDarkMode ? 'text-stone-400' : 'text-stone-500'}>{stat.subject}</span>
-                  <div className="flex gap-2">
-                    <span className="text-red-600">{stat.A}</span>
-                    <span className={isDarkMode ? 'text-stone-600' : 'text-stone-400'}>vs</span>
-                    <span className="text-blue-600">{stat.B}</span>
-                  </div>
-                </div>
-                <div className={`h-1 rounded-full overflow-hidden flex ${isDarkMode ? 'bg-stone-800' : 'bg-stone-200'}`}>
-                  <div style={{ width: `${(stat.A / (stat.A + stat.B)) * 100}%` }} className="h-full bg-red-600" />
-                  <div style={{ width: `${(stat.B / (stat.A + stat.B)) * 100}%` }} className="h-full bg-blue-600" />
-                </div>
-              </div>
-            ))}
-          </div>
-          <button onClick={onClose} className="w-full py-3 bg-red-600 text-white font-black uppercase tracking-widest rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-600/20">Fechar Dossiê</button>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
 const ExpandedNinjaCard: React.FC<{ 
   ninja: Ninja; 
   onClose: () => void; 
@@ -352,7 +253,7 @@ const ExpandedNinjaCard: React.FC<{
         }`}
       >
         {/* Paper Texture Overlay */}
-        <div className={`absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper.png')] ${isDarkMode ? 'invert' : ''}`} />
+        <div className={`absolute inset-0 opacity-10 pointer-events-none bg-[url('/assets/paper-texture.svg')] ${isDarkMode ? 'invert' : ''}`} />
 
         {/* Action Buttons */}
         <div className="absolute top-4 right-4 md:top-6 md:right-6 z-10">
@@ -377,7 +278,7 @@ const ExpandedNinjaCard: React.FC<{
             referrerPolicy="no-referrer"
             loading="lazy"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${ninja.id}/400/400`;
+              (e.target as HTMLImageElement).src = `/assets/placeholder.svg`;
             }}
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
@@ -535,10 +436,16 @@ export default function App() {
   const [comparisonIds, setComparisonIds] = useState<number[]>([]);
   const [isChidoriMode, setIsChidoriMode] = useState(false);
   const [typedKeys, setTypedKeys] = useState('');
+  const [reopenConsent, setReopenConsent] = useState(false);
+
+  useEffect(() => {
+    // Recarrega o GA apenas se o consentimento ja foi concedido antes.
+    initAnalytics();
+  }, []);
 
   const openNinja = useCallback((ninja: Ninja) => {
     const slug = slugify(ninja.name);
-    const url = `https://ninjadex-naruto.vercel.app/ninja/${slug}`;
+    const url = `${SITE_URL}/ninja/${slug}`;
     setSelectedNinjaId(ninja.id);
     window.history.pushState({ ninjaId: ninja.id }, '', `/ninja/${slug}`);
     setMeta(
@@ -551,7 +458,7 @@ export default function App() {
   const closeNinja = useCallback(() => {
     setSelectedNinjaId(null);
     window.history.pushState({}, '', '/');
-    setMeta(DEFAULT_TITLE, DEFAULT_DESC, 'https://ninjadex-naruto.vercel.app/');
+    setMeta(DEFAULT_TITLE, DEFAULT_DESC, `${SITE_URL}/`);
   }, []);
 
   useEffect(() => {
@@ -560,7 +467,7 @@ export default function App() {
     if (match) {
       const found = ninjas.find(n => slugify(n.name) === match[1]);
       if (found) {
-        const url = `https://ninjadex-naruto.vercel.app/ninja/${match[1]}`;
+        const url = `${SITE_URL}/ninja/${match[1]}`;
         setSelectedNinjaId(found.id);
         setMeta(
           `${found.name} | NinjaDex - Naruto Shippuden`,
@@ -578,11 +485,11 @@ export default function App() {
         if (found) setMeta(
           `${found.name} | NinjaDex - Naruto Shippuden`,
           `${found.name}: ${found.description} Aldeia: ${found.village}. Jutsus: ${found.jutsus.slice(0, 3).join(', ')}.`,
-          `https://ninjadex-naruto.vercel.app/ninja/${m[1]}`
+          `${SITE_URL}/ninja/${m[1]}`
         );
       } else {
         setSelectedNinjaId(null);
-        setMeta(DEFAULT_TITLE, DEFAULT_DESC, 'https://ninjadex-naruto.vercel.app/');
+        setMeta(DEFAULT_TITLE, DEFAULT_DESC, `${SITE_URL}/`);
       }
     };
     window.addEventListener('popstate', handlePopState);
@@ -633,7 +540,7 @@ export default function App() {
       isChidoriMode ? 'bg-blue-900 invert' : isDarkMode ? 'bg-stone-950 text-stone-100' : 'bg-[#f5f2ed] text-stone-900'
     }`}>
       {/* Background Texture */}
-      <div className={`fixed inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] ${isDarkMode ? 'invert' : ''}`} />
+      <div className={`fixed inset-0 opacity-[0.03] pointer-events-none bg-[url('/assets/paper-texture.svg')] ${isDarkMode ? 'invert' : ''}`} />
 
       {/* Header */}
       <header className="relative pt-12 pb-8 px-4 max-w-7xl mx-auto text-center space-y-8">
@@ -810,11 +717,13 @@ export default function App() {
             />
           )}
           {comparisonNinjas.length === 2 && (
-            <SharinganMode 
-              ninjas={comparisonNinjas} 
-              onClose={() => setComparisonIds([])} 
-              isDarkMode={isDarkMode}
-            />
+            <Suspense fallback={null}>
+              <SharinganMode
+                ninjas={comparisonNinjas}
+                onClose={() => setComparisonIds([])}
+                isDarkMode={isDarkMode}
+              />
+            </Suspense>
           )}
         </AnimatePresence>
       </main>
@@ -828,11 +737,22 @@ export default function App() {
             <Eye size={20} />
           </div>
           <p className={`text-[10px] font-mono uppercase tracking-[0.3em] ${isDarkMode ? 'text-stone-600' : 'text-stone-400'}`}>Propriedade da Aliança Shinobi • Todos os direitos reservados</p>
+          <nav className={`flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] font-mono uppercase tracking-[0.2em] ${isDarkMode ? 'text-stone-500' : 'text-stone-500'}`}>
+            <a href="/privacidade.html" className="hover:text-red-600 transition-colors">Privacidade</a>
+            <a href="/termos.html" className="hover:text-red-600 transition-colors">Termos</a>
+            <button type="button" onClick={() => setReopenConsent(true)} className="uppercase hover:text-red-600 transition-colors">Preferências de cookies</button>
+          </nav>
           <p className={`text-[10px] font-mono uppercase tracking-[0.3em] ${isDarkMode ? 'text-stone-500' : 'text-stone-500'}`}>
             Feito por Leonardo Debs com uso de IA - Google IA Studio 🇧🇷
           </p>
         </div>
       </footer>
+
+      <CookieConsent
+        isDarkMode={isDarkMode}
+        forceOpen={reopenConsent}
+        onResolved={() => setReopenConsent(false)}
+      />
     </div>
   );
 }
