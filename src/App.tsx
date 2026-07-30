@@ -714,7 +714,7 @@ export default function App() {
             <button type="button" onClick={() => setReopenConsent(true)} className="uppercase hover:text-red-600 transition-colors">Preferências de cookies</button>
           </nav>
           <p className={`text-[10px] font-mono uppercase tracking-[0.3em] ${isDarkMode ? 'text-stone-500' : 'text-stone-500'}`}>
-            Feito por Leonardo Debs com uso de IA - Google IA Studio 🇧🇷
+            Feito por Leonardo Debs com uso de IA
           </p>
         </div>
       </footer>
