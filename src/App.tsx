@@ -395,37 +395,8 @@ const ExpandedNinjaCard: React.FC<{
 };
 
 export default function App() {
-  const ninjas = useMemo(() => {
-    return NINJAS.map(ninja => {
-      const wrapProxy = (url: string) => {
-        if (!url) return url;
-        
-        // Se for uma imagem da Wikia, usa o proxy statically.io que é mais estável para Fandom
-        if (url.includes('static.wikia.nocookie.net')) {
-          // Remove revisões para pegar a original e evitar problemas de cache
-          const cleanUrl = url.split('/revision/')[0];
-          return `https://cdn.statically.io/img/${cleanUrl.replace('https://', '')}`;
-        }
-        
-        // Se for GitHub, também podemos usar statically para CDN
-        if (url.includes('raw.githubusercontent.com')) {
-          return url.replace('raw.githubusercontent.com', 'cdn.statically.io/gh').replace('/master/', '/');
-        }
-        
-        // Se for MyAnimeList, usa i0.wp.com (Jetpack) para evitar bloqueios de hotlink
-        if (url.includes('myanimelist.net')) {
-          return `https://i0.wp.com/${url.replace('https://', '')}`;
-        }
-        
-        return url;
-      };
-      
-      return {
-        ...ninja,
-        image: wrapProxy(ninja.image)
-      };
-    });
-  }, []);
+  // Todas as imagens sao self-hostadas em /assets/ninjas. Sem proxy externo.
+  const ninjas = useMemo(() => NINJAS, []);
 
   const [search, setSearch] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
