@@ -24,6 +24,21 @@ describe('sitemap x personagens', () => {
     expect(sitemap).toContain(`<loc>${SITE_URL}/termos.html</loc>`);
   });
 
+  it('o indice de sitemaps aponta para o sitemap e usa o mesmo lastmod', () => {
+    const index = readFileSync('public/sitemap_index.xml', 'utf8');
+    expect(index).toContain(`<loc>${SITE_URL}/sitemap.xml</loc>`);
+
+    const lastmodSitemap = sitemap.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    const lastmodIndex = index.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    expect(lastmodIndex).toBe(lastmodSitemap);
+  });
+
+  it('o robots.txt referencia os dois sitemaps', () => {
+    const robots = readFileSync('public/robots.txt', 'utf8');
+    expect(robots).toContain(`Sitemap: ${SITE_URL}/sitemap_index.xml`);
+    expect(robots).toContain(`Sitemap: ${SITE_URL}/sitemap.xml`);
+  });
+
   it('usa sempre o dominio de producao', () => {
     const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
     expect(locs.length).toBeGreaterThan(0);

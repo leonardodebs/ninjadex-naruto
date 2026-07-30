@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Sitemap: https://ninjadex-naruto.vercel.app/sitemap_index.xml
 Sitemap: https://ninjadex-naruto.vercel.app/sitemap.xml
