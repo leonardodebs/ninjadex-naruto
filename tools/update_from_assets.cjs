@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataPath = path.join(__dirname, 'src', 'data', 'ninjas.ts');
+const dataPath = path.join(__dirname, '..', 'src', 'data', 'ninjas.ts');
 let content = fs.readFileSync(dataPath, 'utf8');
 
 const mapping = {

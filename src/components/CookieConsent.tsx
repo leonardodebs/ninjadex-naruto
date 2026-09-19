@@ -51,14 +51,14 @@ const CookieConsent: React.FC<Props> = ({ isDarkMode, forceOpen = false, onResol
     >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
         <p className="text-sm leading-relaxed flex-1">
-          Usamos o Google Analytics para entender o trafego do site. Ele so e ativado
-          se voce aceitar, e envia dados (incluindo seu IP) ao Google nos EUA. Saiba mais
+          Usamos o Google Analytics para entender o tráfego do site. Ele só é ativado
+          se você aceitar, e envia dados (incluindo seu IP) ao Google nos EUA. Saiba mais
           na{' '}
           <a
             href="/privacidade.html"
             className="underline font-semibold hover:text-red-600"
           >
-            Politica de Privacidade
+            Política de Privacidade
           </a>
           .
         </p>

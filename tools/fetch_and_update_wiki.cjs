@@ -67,8 +67,8 @@ https.get(apiUrl, (res) => {
 }).on('error', err => console.error(err));
 
 async function updateNinjasFile(imageMap) {
-    const dataPath = path.join(__dirname, 'src', 'data', 'ninjas.ts');
-    const destDir = path.join(__dirname, 'public', 'assets', 'ninjas');
+    const dataPath = path.join(__dirname, '..', 'src', 'data', 'ninjas.ts');
+    const destDir = path.join(__dirname, '..', 'public', 'assets', 'ninjas');
     if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
 
     let content = fs.readFileSync(dataPath, 'utf8');

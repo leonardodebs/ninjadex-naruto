@@ -11,8 +11,8 @@ const updates = [
 ];
 
 async function run() {
-    const dataPath = path.join(__dirname, 'src', 'data', 'ninjas.ts');
-    const destDir = path.join(__dirname, 'public', 'assets', 'ninjas');
+    const dataPath = path.join(__dirname, '..', 'src', 'data', 'ninjas.ts');
+    const destDir = path.join(__dirname, '..', 'public', 'assets', 'ninjas');
     let content = fs.readFileSync(dataPath, 'utf8');
 
     for (const update of updates) {

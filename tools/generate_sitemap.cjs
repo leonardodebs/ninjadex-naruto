@@ -1,3 +1,6 @@
+// ATENCAO: desatualizado. O sitemap e o sitemap_index sao mantidos a mao em
+// public/, com lastmod e prioridades. Rodar este script sobrescreve public/sitemap.xml.
+// Nao rode sem revisar.
 const fs = require('fs');
 const path = require('path');
 
@@ -14,5 +17,5 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     </url>
 </urlset>`;
 
-fs.writeFileSync(path.join(__dirname, 'public', 'sitemap.xml'), sitemap);
+fs.writeFileSync(path.join(__dirname, '..', 'public', 'sitemap.xml'), sitemap);
 console.log('Sitemap generated!');

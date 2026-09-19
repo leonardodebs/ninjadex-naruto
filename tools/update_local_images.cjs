@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const srcDir = 'C:\\Users\\Leonardo\\OneDrive\\Imagens\\ninjadex';
-const destDir = path.join(__dirname, 'public', 'assets', 'ninjas');
-const dataPath = path.join(__dirname, 'src', 'data', 'ninjas.ts');
+const destDir = path.join(__dirname, '..', 'public', 'assets', 'ninjas');
+const dataPath = path.join(__dirname, '..', 'src', 'data', 'ninjas.ts');
 
 if (!fs.existsSync(destDir)) {
     fs.mkdirSync(destDir, { recursive: true });
