@@ -60,7 +60,7 @@ const buildDescription = (n: Ninja): string => {
  * que substitui o conteudo do container ao montar, entao isso serve como conteudo
  * indexavel no HTML cru e como primeira pintura para quem esta em conexao lenta.
  */
-const buildBody = (n: Ninja, url: string): string => {
+const buildBody = (n: Ninja): string => {
   // Alguns personagens nao tem elemento ou dojutsu cadastrado; omite a linha
   // inteira em vez de deixar um rotulo vazio no HTML.
   const elements = n.elements?.length
@@ -186,7 +186,11 @@ const renderPage = (template: string, n: Ninja): string => {
   html = setMetaContent(html, 'property', 'og:title', title);
   html = setMetaContent(html, 'property', 'og:description', description);
   html = setMetaContent(html, 'property', 'og:image', image);
-  html = setMetaContent(html, 'property', 'og:image:alt', `${n.name} - NinjaDex`);
+  html = setMetaContent(html, 'property', 'og:image:alt', `${n.name} no NinjaDex`);
+
+  // As imagens de personagem sao retratos de tamanhos variados, entao as
+  // dimensoes fixas herdadas do template (proprias da home) nao se aplicam.
+  html = html.replace(/\s*<meta property="og:image:(width|height)" content="[^"]*" \/>/g, '');
   html = setMetaContent(html, 'name', 'twitter:url', url);
   html = setMetaContent(html, 'name', 'twitter:title', title);
   html = setMetaContent(html, 'name', 'twitter:description', description);
@@ -216,7 +220,7 @@ const renderPage = (template: string, n: Ninja): string => {
   }
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root">${buildBody(n, url)}\n    </div>`,
+    `<div id="root">${buildBody(n)}\n    </div>`,
   );
 
   return html;
