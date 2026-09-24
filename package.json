@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "lucide-react": "^1.46.0",
-    "motion": "^12.43.0",
+    "motion": "^13.4.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "recharts": "^3.10.1"
